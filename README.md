@@ -34,6 +34,7 @@ Users should be able to:
 * Framer Motion
 * CSS Modules
 * SASS
+* Supabase
 
 ## Workflow
 1. Project Setup: Initialize the React app using Vite and install the necessary dependencies.
