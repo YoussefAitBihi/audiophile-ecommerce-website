@@ -1,14 +1,14 @@
 # Audiophile e-commerce website
 
 **Table of contents:**
-* [Overview](#section-overview)
-* [Challenge](#section-challenge)
-* [Technologies](#section-technologies)
-* [Workflow](#section-workflow)
-* [Setup](#section-setup)
-* [Usage](#section-usage)
-* [Contributing](#section-contributing)
-* [Author](#section-author)
+* [Overview](#user-content-overview)
+* [Challenge](#user-content-challenge)
+* [Technologies](#user-content-technologies)
+* [Workflow](#user-content-workflow)
+* [Setup](#user-content-setup)
+* [Usage](#user-content-usage)
+* [Contributing](#user-content-contributing)
+* [Author](#user-content-author)
 
 ## Overview
 Audiophile Ecommerce is a multi-page e-commerce platform where users can shop for speakers, earphones, headphones, and other audio equipment.
