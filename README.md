@@ -49,7 +49,7 @@ Users should be able to:
 10. Documentation: Ensure code documentation and create a comprehensive README.
 
 ## Setup
-1. Clone the project using `npm clone https://github.com/YoussefAitBihi/audiophile-ecommerce-website.git`
+1. Clone the project using `git clone https://github.com/YoussefAitBihi/audiophile-ecommerce-website.git`
 2. Install all dependencies using `npm install`
 
 ## Usage
