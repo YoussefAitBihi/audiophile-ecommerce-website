@@ -26,7 +26,6 @@ Users should be able to:
 * SASS
 
 ## Workflow
-
 1. Project Setup: Initialize the React app using Vite and install the necessary dependencies.
 2. Folder Structure: Organize files into components, containers, Redux-related files, styles, and services.
 3. Implementing UI: Create components, and utilize CSS Modules and SASS for styling.
@@ -39,6 +38,15 @@ Users should be able to:
 10. Documentation: Ensure code documentation and create a comprehensive README.
 
 ## Setup
+1. Clone the project using `npm clone https://github.com/YoussefAitBihi/audiophile-ecommerce-website.git`
+2. Install all dependencies using `npm install`
 
-Clone the project using npm clone https://github.com/YoussefAitBihi/audiophile-ecommerce-website.git
+## Usage
+1. Start the development server using `npm start`
+2. Access the application at `http://localhost:5173/`
 
+## Contributing
+If you want to contribute to this project, please follow the guidelines.
+
+## Author
+[Youssef Ait Bihi](https://github.com/YoussefAitBihi/)
