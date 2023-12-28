@@ -1,0 +1,11 @@
+.hamburger-button {
+  grid-area: hamburger;
+
+  @include respond-to("desktop") {
+    display: none;
+  }
+
+  @include respond-to("tablet") {
+    margin-right: 2rem;
+  }
+}

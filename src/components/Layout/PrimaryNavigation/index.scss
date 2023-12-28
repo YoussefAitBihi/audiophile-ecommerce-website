@@ -1,0 +1,31 @@
+.primary-navigation {
+  grid-area: logo;
+  display: none;
+
+  &__list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__link {
+    &:where(:link, :visited) {
+      font-size: $fs-100;
+      font-weight: $fw-bold;
+      color: $clr-neutral-100;
+      text-transform: uppercase;
+      letter-spacing: $ls-300;
+      transition: color 0.2s ease-in;
+    }
+
+    &:where(:hover, :focus-visible),
+    &--active {
+      color: $clr-primary-400;
+    }
+  }
+
+  @include respond-to("desktop") {
+    display: block;
+  }
+}

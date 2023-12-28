@@ -1,0 +1,33 @@
+.nav-link {
+  background-color: $clr-neutral-300;
+  padding: 8rem 2rem 2rem; // Temp
+  border-radius: $br-300;
+  text-align: center;
+  position: relative;
+  transition: box-shadow 0.2s ease-in;
+
+  &:is(:hover, :focus-visible) {
+    box-shadow: $box-shadow-400;
+  }
+
+  &__picture {
+    width: 15rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    translate: -50% -35%;
+  }
+
+  &__title {
+    font-size: $fs-400;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $clr-neutral-900;
+    letter-spacing: $ls-300;
+    margin-bottom: 1rem;
+  }
+}
+
+.nav-link:is(:hover, :focus-visible) .secondary-button {
+  @include change-state-nav-link();
+}

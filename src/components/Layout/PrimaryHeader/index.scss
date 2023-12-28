@@ -1,0 +1,35 @@
+.primary-header {
+  --_primary-header-height: clamp(9rem, 7vw, 9.7rem);
+
+  height: var(--_primary-header-height);
+  background-color: $clr-neutral-900;
+
+  &__nav-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-areas: "hamburger logo cart";
+    justify-content: space-between;
+    align-content: center;
+    height: var(--_primary-header-height);
+  }
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  @include respond-to("tablet") {
+    &__nav-wrapper {
+      grid-template-columns: repeat(2, min-content) 1fr;
+    }
+  }
+
+  @include respond-to("desktop") {
+    &__nav-wrapper {
+      grid-template-columns: none;
+    }
+
+    &__logo {
+      grid-area: hamburger;
+    }
+  }
+}
