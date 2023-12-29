@@ -7,6 +7,7 @@ $clr-accent-100: hsl(21, 94%, 75%);
 
 $clr-neutral-900: hsl(0, 0%, 0%);
 $clr-neutral-700: hsl(0, 0%, 6%);
+
 $clr-neutral-300: hsl(0, 0%, 95%);
 $clr-neutral-200: hsl(0, 0%, 98%);
 $clr-neutral-100: hsl(0, 0%, 100%);
@@ -36,9 +37,34 @@ $fw-medium: 500;
 $fw-regular: 400;
 
 // Letter Spacing
-$ls-600: 10px;
-$ls-500: 2px;
-$ls-400: 1.7px;
-$ls-300: 1.3px;
-$ls-200: 1.15px;
-$ls-100: 1px;
+$ls-600: 1rem;
+$ls-500: 0.2rem;
+$ls-400: 0.7rem;
+$ls-300: 0.13rem;
+$ls-200: 0.115rem;
+$ls-100: 0.1rem;
+
+// Border Radius
+$br-400: 1.2rem;
+$br-300: 0.8rem;
+
+// Breakpoints
+// $bp-desktop: 90em;
+$bp-desktop: 70em;
+$bp-tablet: 48em;
+$bp-mobile: 23.4375em;
+
+$available-breakpoints: (
+  "mobile": (
+    min-width: $bp-mobile,
+  ),
+  "tablet": (
+    min-width: $bp-tablet,
+  ),
+  "desktop": (
+    min-width: $bp-desktop,
+  ),
+);
+
+// Box shadows
+$box-shadow-400: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);

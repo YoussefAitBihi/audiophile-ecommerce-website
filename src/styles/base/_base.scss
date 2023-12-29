@@ -21,10 +21,7 @@ body {
 }
 
 img,
-picture,
-video,
-canvas,
-svg {
+picture {
   display: block;
   max-width: 100%;
 }
@@ -53,6 +50,16 @@ ol[role="list"] {
 
 a:not([class]) {
   text-decoration-skip-ink: auto;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+button[class] {
+  background-color: transparent;
+  border: none;
 }
 
 #root {

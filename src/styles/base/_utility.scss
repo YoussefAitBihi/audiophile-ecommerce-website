@@ -1,4 +1,15 @@
-.center {
-  display: grid;
-  place-content: center;
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.container {
+  --_padding: 2rem;
+  width: min($bp-desktop, 100% - var(--_padding) * 2);
+  margin: auto;
 }

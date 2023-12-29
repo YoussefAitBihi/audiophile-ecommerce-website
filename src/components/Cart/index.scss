@@ -1,0 +1,7 @@
+.cart {
+  grid-area: cart;
+
+  @include respond-to("tablet") {
+    margin-left: auto;
+  }
+}

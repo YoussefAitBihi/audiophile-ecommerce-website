@@ -1,5 +1,5 @@
 const PrimaryFooter = () => {
-  return <h1>Primary Footer</h1>;
+  return;
 };
 
 export default PrimaryFooter;

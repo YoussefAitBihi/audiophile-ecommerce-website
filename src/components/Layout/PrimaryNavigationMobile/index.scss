@@ -1,0 +1,31 @@
+.primary-navigation-mobile {
+  --_padding: 8rem;
+  --_gap: 7rem;
+
+  background-color: $clr-neutral-100;
+  width: 100%;
+  border-bottom-left-radius: $br-400;
+  border-bottom-right-radius: $br-400;
+  padding: var(--_padding) 0 2rem;
+
+  position: absolute;
+  top: var(--_primary-header-height);
+  left: 0;
+
+  &__list {
+    display: grid;
+    gap: var(--_gap);
+  }
+
+  @include respond-to("desktop") {
+    display: none;
+  }
+
+  @include respond-to("tablet") {
+    --_gap: 2rem;
+
+    &__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

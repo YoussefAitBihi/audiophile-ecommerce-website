@@ -1,3 +1,29 @@
-@mixin to-red {
-  color: red;
+/*
+ * Responsive breakpoint manager
+*/
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($available-breakpoints, $breakpoint);
+
+  // If raw-query exists
+  @if $raw-query {
+    $query: if(type-of($raw-query) == "string", unquote($raw-query), inspect($raw-query));
+
+    @media only screen and #{$query} {
+      @content;
+    }
+  } @else {
+    @error "`#{$breakpoint}` doesn't exist. Make sure you have passed a valid breakpoint. Try to look at variables.scss";
+  }
+}
+
+@mixin change-state-nav-link {
+  color: $clr-primary-400;
+
+  & > svg {
+    margin-left: 0.8rem;
+  }
+
+  & > svg > path {
+    stroke: $clr-primary-400;
+  }
 }
