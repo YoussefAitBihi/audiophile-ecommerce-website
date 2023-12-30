@@ -13,3 +13,35 @@
   width: min($bp-desktop, 100% - var(--_padding) * 2);
   margin: auto;
 }
+
+.primary-heading {
+  font-size: clamp($fs-800, 7vw + 0.2rem, $fs-1000);
+  letter-spacing: clamp($ls-7, 0.2vw + 0.45px, $ls-10);
+  text-transform: uppercase;
+  color: $clr-neutral-100;
+}
+
+// category = product item ! color, letter-spacing (mobile)
+.secondary-heading {
+  font-size: clamp($fs-600, 5vw + 0.2rem, $fs-900);
+  text-transform: uppercase;
+  letter-spacing: clamp($ls-4, 0.2vw + 0.5px, $ls-10);
+
+  &--category {
+    color: $clr-neutral-100;
+    letter-spacing: clamp($ls-8, 0.2vw + 0.4px, $ls-10);
+  }
+}
+
+.new-product-text {
+  font-size: $fs-200;
+  font-weight: $fw-regular;
+  color: $clr-primary-400;
+  letter-spacing: $ls-12;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+
+  &--white {
+    color: $clr-neutral-100--50;
+  }
+}

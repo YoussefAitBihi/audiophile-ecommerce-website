@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Overlay from "@/components/UI/Overlay";
+// import Overlay from "@/components/UI/Overlay";
 
 const CartModal = () => {
   return (
     <>
-      <Overlay />
+      {/* <Overlay /> */}
       <div className="cart-modal" id="cart-modal">
         <div className="cart-modal__head">
           <h2 className="cart-modal__title">

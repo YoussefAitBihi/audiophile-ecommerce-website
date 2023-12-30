@@ -1,0 +1,50 @@
+.section-hero {
+  padding-block: clamp(5rem, 8vw, 10rem);
+  transition: all 0.3s;
+  background-color: #191919; // temp
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: no-repeat center/contain url("../assets/images/home/mobile/image-header.jpg");
+  }
+
+  @include respond-to("tablet") {
+    &::after {
+      background: no-repeat center/contain url("../assets/images/home/tablet/image-header.jpg");
+    }
+  }
+
+  @include respond-to("desktop") {
+    &::after {
+      background: no-repeat right/contain url("../assets/images/home/desktop/image-hero.jpg");
+    }
+  }
+
+  &__description {
+    color: $clr-neutral-100--50;
+  }
+}
+
+.product-detail-grid {
+  $gap: 3rem;
+
+  display: grid;
+  gap: $gap;
+  text-align: center;
+  max-width: 50ch;
+  margin-inline: auto;
+
+  @include respond-to("desktop") {
+    text-align: left;
+    margin-inline: 0;
+  }
+}

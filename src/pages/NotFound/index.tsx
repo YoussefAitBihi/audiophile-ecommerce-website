@@ -1,7 +1,7 @@
 import PrimaryHeader from "@/components/Layout/PrimaryHeader";
 import PrimaryFooter from "@/components/Layout/PrimaryFooter";
 
-const ErrorPage = () => {
+const NotFoundPage = () => {
   return (
     <>
       <PrimaryHeader />
@@ -11,4 +11,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default NotFoundPage;

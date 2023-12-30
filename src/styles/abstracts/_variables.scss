@@ -10,6 +10,7 @@ $clr-neutral-700: hsl(0, 0%, 6%);
 
 $clr-neutral-300: hsl(0, 0%, 95%);
 $clr-neutral-200: hsl(0, 0%, 98%);
+$clr-neutral-100--50: hsl(0, 0%, 100%, 0.5);
 $clr-neutral-100: hsl(0, 0%, 100%);
 
 /* ------------------------ */
@@ -19,8 +20,9 @@ $clr-neutral-100: hsl(0, 0%, 100%);
 $ff-primary: "Manrope", sans-serif;
 
 // Font size
-$fs-900: 5.6rem;
-$fs-800: 4rem;
+$fs-1000: 5.6rem;
+$fs-900: 4rem;
+$fs-800: 3.6rem;
 $fs-700: 3.2rem;
 $fs-600: 2.8rem;
 $fs-500: 2.4rem;
@@ -37,20 +39,26 @@ $fw-medium: 500;
 $fw-regular: 400;
 
 // Letter Spacing
-$ls-600: 1rem;
-$ls-500: 0.2rem;
-$ls-400: 0.7rem;
-$ls-300: 0.13rem;
-$ls-200: 0.115rem;
-$ls-100: 0.1rem;
+$ls-12: 10px;
+$ls-11: 7px;
+$ls-10: 2px;
+$ls-9: 1.71px;
+$ls-8: 1.43px;
+$ls-7: 1.3px;
+$ls-6: 1.15px;
+$ls-5: 1.14px;
+$ls-4: 1px;
+$ls-3: 0.86px;
+$ls-2: -0.21px;
+$ls-1: -0.25px;
 
 // Border Radius
 $br-400: 1.2rem;
 $br-300: 0.8rem;
 
 // Breakpoints
+$bp-desktop: 80em;
 // $bp-desktop: 90em;
-$bp-desktop: 70em;
 $bp-tablet: 48em;
 $bp-mobile: 23.4375em;
 
