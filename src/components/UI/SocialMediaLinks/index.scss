@@ -1,0 +1,15 @@
+.social-media {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  &__link {
+    & > svg > path {
+      transition: fill 0.2s;
+    }
+
+    &:is(:hover, :focus-visible) > svg > path {
+      fill: $clr-primary-400;
+    }
+  }
+}

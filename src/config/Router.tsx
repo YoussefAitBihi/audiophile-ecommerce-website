@@ -19,9 +19,9 @@ const RouterConfig = () => {
       errorElement: <NotFoundPage />,
       children: [
         { index: true, element: <HomePage /> },
-        { path: "/category/:slug", element: <CategoryPage /> },
-        { path: "/product/:slug", element: <ProductDetailPage /> },
-        { path: "/checkout", element: <CheckoutPage /> },
+        { path: "category/:slug", element: <CategoryPage /> },
+        { path: "product/:slug", element: <ProductDetailPage /> },
+        { path: "checkout", element: <CheckoutPage /> },
       ],
     },
   ]);

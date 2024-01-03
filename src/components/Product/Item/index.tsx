@@ -6,14 +6,14 @@ import PrimaryButton from "@/components/UI/Buttons/Primary";
 const ProductItem: FC<ProductItemProps> = (product) => {
   return (
     <article className="product-item">
-      <ProductPicture {...product.picture} />
-      <div className="product-item__details">
-        <div className="product-item__header">
-          <p>new product</p>
-          <h2>{product.title}</h2>
+      <ProductPicture {...product} alt={`${product.title} picture`} />
+      <div className="product-detail-grid">
+        <div>
+          <p className="new-product-text">new product</p>
+          <h2 className="secondary-heading">{product.title}</h2>
         </div>
         <p>{product.description}</p>
-        <PrimaryButton tag="link" href={`/product/${product.slug}`}>
+        <PrimaryButton tag="link" href={`/product/${product.slug}`} modifier="orange">
           see product
         </PrimaryButton>
       </div>

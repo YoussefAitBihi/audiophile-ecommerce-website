@@ -7,10 +7,12 @@ $clr-accent-100: hsl(21, 94%, 75%);
 
 $clr-neutral-900: hsl(0, 0%, 0%);
 $clr-neutral-700: hsl(0, 0%, 6%);
+$clr-neutral-600: #191919;
 
 $clr-neutral-300: hsl(0, 0%, 95%);
 $clr-neutral-200: hsl(0, 0%, 98%);
 $clr-neutral-100--50: hsl(0, 0%, 100%, 0.5);
+$clr-neutral-100--80: hsl(0, 0%, 100%, 0.2);
 $clr-neutral-100: hsl(0, 0%, 100%);
 
 /* ------------------------ */
@@ -57,7 +59,7 @@ $br-400: 1.2rem;
 $br-300: 0.8rem;
 
 // Breakpoints
-$bp-desktop: 80em;
+$bp-desktop: 60em;
 // $bp-desktop: 90em;
 $bp-tablet: 48em;
 $bp-mobile: 23.4375em;

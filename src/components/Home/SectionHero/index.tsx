@@ -7,8 +7,9 @@ const SectionHero = () => {
         <div className="product-detail-grid">
           <div className="section-hero__header">
             <p className="new-product-text new-product-text--white">new product</p>
+
             <h1 className="primary-heading" id="xx99-mark-ii-headphones">
-              XX99 mark ii headphones
+              xx99 mark ii headphones
             </h1>
           </div>
           <p className="section-hero__description">
