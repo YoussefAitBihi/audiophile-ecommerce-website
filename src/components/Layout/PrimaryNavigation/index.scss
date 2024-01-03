@@ -1,12 +1,15 @@
 .primary-navigation {
-  grid-area: logo;
-  display: none;
+  &--header {
+    grid-area: logo;
+    display: none;
+  }
 
   &__list {
     height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 5rem;
+  }
+
+  &__item:not(:last-of-type) {
+    margin-bottom: 2rem;
   }
 
   &__link {
@@ -15,7 +18,7 @@
       font-weight: $fw-bold;
       color: $clr-neutral-100;
       text-transform: uppercase;
-      letter-spacing: $ls-300;
+      letter-spacing: $ls-7;
       transition: color 0.2s ease-in;
     }
 
@@ -26,6 +29,20 @@
   }
 
   @include respond-to("desktop") {
-    display: block;
+    &--header {
+      display: grid;
+    }
+  }
+
+  @include respond-to("tablet") {
+    &__list {
+      display: flex;
+      align-items: center;
+      column-gap: 4rem;
+    }
+
+    &__item:not(:last-of-type) {
+      margin: 0;
+    }
   }
 }

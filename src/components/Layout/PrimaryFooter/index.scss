@@ -1,0 +1,86 @@
+.primary-footer {
+  $padding-block: 5rem;
+  $gap: 3rem;
+
+  background-color: $clr-neutral-700;
+  color: $clr-neutral-100--50;
+  text-align: center;
+
+  &__wrapper {
+    padding-block: $padding-block;
+    display: grid;
+    justify-items: center;
+    gap: $gap;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 10rem;
+      height: 3px;
+      background-color: $clr-primary-400;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      translate: -50% 0;
+    }
+  }
+
+  @include respond-to("tablet") {
+    text-align: left;
+
+    &__wrapper {
+      justify-items: flex-start;
+      grid-template-areas:
+        "logo logo"
+        "navigation navigation"
+        "description description"
+        "copyright social-media";
+
+      &::after {
+        left: 0;
+        translate: 0;
+      }
+    }
+
+    &__description {
+      grid-area: description;
+    }
+
+    &__copyright {
+      grid-area: copyright;
+    }
+  }
+
+  @include respond-to("desktop") {
+    &__wrapper {
+      grid-template-areas:
+        "logo navigation"
+        "description social-media"
+        "copyright copyright";
+      justify-content: space-between;
+      column-gap: $gap * 3;
+    }
+
+    &__logo {
+      grid-area: logo;
+    }
+  }
+}
+
+.primary-footer .primary-navigation {
+  @include respond-to("tablet") {
+    grid-area: navigation;
+  }
+}
+
+.primary-footer .social-media {
+  @include respond-to("tablet") {
+    grid-area: social-media;
+    justify-self: end;
+  }
+
+  @include respond-to("desktop") {
+    align-self: end;
+  }
+}

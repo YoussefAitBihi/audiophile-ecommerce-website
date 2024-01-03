@@ -4,24 +4,22 @@ import { navLinks } from "@/data";
 
 const PrimaryNavigationMobile = () => {
   return (
-    <>
-      <nav
-        className="primary-navigation-mobile"
-        id="primary-navigation-mobile"
-        aria-label="Primary Mobile"
-      >
-        <Overlay />
-        <div className="container">
-          <ul role="list" className="primary-navigation-mobile__list">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink {...link} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-    </>
+    <nav
+      className="primary-navigation-mobile"
+      id="primary-navigation-mobile"
+      aria-label="Primary Mobile"
+    >
+      <Overlay />
+      <div className="container">
+        <ul role="list" className="primary-navigation-mobile__list">
+          {navLinks.map((link, index) => (
+            <li key={index}>
+              <NavLink {...link} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

@@ -2,7 +2,12 @@
   --_primary-header-height: clamp(9rem, 7vw, 9.7rem);
 
   height: var(--_primary-header-height);
-  background-color: $clr-neutral-900;
+  background-color: $clr-neutral-600;
+  border-bottom: 1px solid $clr-neutral-100--80;
+
+  &--black {
+    background-color: $clr-neutral-900;
+  }
 
   &__nav-wrapper {
     display: grid;
@@ -18,8 +23,11 @@
   }
 
   @include respond-to("tablet") {
+    border-bottom: none;
+
     &__nav-wrapper {
       grid-template-columns: repeat(2, min-content) 1fr;
+      border-bottom: 1px solid $clr-neutral-100--80;
     }
   }
 

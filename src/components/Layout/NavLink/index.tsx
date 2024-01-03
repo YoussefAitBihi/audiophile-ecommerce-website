@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FC } from "react";
 import { NavLinkProps } from "@/types/props";
-import SecondaryButton from "@/components/UI/Buttons/SecondaryButton";
+import SecondaryButton from "@/components/UI/Buttons/Secondary";
 
 const NavLink: FC<NavLinkProps> = ({ title, imageURL, href, alt }) => {
   return (

@@ -1,22 +1,22 @@
-import LogoIcon from "@/assets/icons/Logo";
-import { Link } from "react-router-dom";
 import PrimaryNavigation from "../PrimaryNavigation";
 import Cart from "@/components/Cart";
 import HamburgerButton from "@/components/UI/Buttons/Hamburger";
 import PrimaryNavigationMobile from "../PrimaryNavigationMobile";
+import { useLocation } from "react-router-dom";
+import Logo from "@/components/UI/Links/Logo";
 
 const PrimaryHeader = () => {
+  const { pathname } = useLocation();
+  const pattern = /\/category\/[a-z]+/;
+
   return (
-    <header className="primary-header">
+    <header className={`primary-header ${pattern.test(pathname) ? "primary-header--black" : ""}`}>
       <div className="container">
         <div className="primary-header__nav-wrapper">
-          <Link to="/" className="primary-header__logo">
-            <span className="visually-hidden">Website logo</span>
-            <LogoIcon />
-          </Link>
+          <Logo className="primary-header__logo" />
           <HamburgerButton />
           <PrimaryNavigationMobile />
-          <PrimaryNavigation />
+          <PrimaryNavigation modifierClass="primary-navigation--header" />
           <Cart />
         </div>
       </div>

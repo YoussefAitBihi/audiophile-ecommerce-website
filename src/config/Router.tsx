@@ -4,7 +4,7 @@ import CategoryPage from "@/pages/Category";
 import ProductDetailPage from "@/pages/ProductDetail";
 import CheckoutPage from "@/pages/Checkout";
 import RootLayout from "@/pages/Root";
-import ErrorPage from "@/pages/Error";
+import NotFoundPage from "@/pages/NotFound";
 
 /**
  * Router - Allow to take the url and render the adequate page.
@@ -16,12 +16,12 @@ const RouterConfig = () => {
     {
       path: "/",
       element: <RootLayout />,
-      errorElement: <ErrorPage />,
+      errorElement: <NotFoundPage />,
       children: [
         { index: true, element: <HomePage /> },
-        { path: "/category/:slug", element: <CategoryPage /> },
-        { path: "/product/:slug", element: <ProductDetailPage /> },
-        { path: "/checkout", element: <CheckoutPage /> },
+        { path: "category/:slug", element: <CategoryPage /> },
+        { path: "product/:slug", element: <ProductDetailPage /> },
+        { path: "checkout", element: <CheckoutPage /> },
       ],
     },
   ]);
