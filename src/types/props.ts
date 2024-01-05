@@ -42,3 +42,16 @@ export type PrimaryButtonProps = {
   href: string;
   modifier: "orange" | "white";
 };
+
+export type HamburgerButtonProps = {
+  mobileNavigationIsShown: boolean;
+  onClick: () => void;
+};
+
+export type UIStateDescriptor = {
+  mobileNavigationIsShown: boolean;
+};
+
+export type AppWideStateDescriptor = {
+  ui: UIStateDescriptor;
+};
