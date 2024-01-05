@@ -5,6 +5,8 @@ import ProductDetailPage from "@/pages/ProductDetail";
 import CheckoutPage from "@/pages/Checkout";
 import RootLayout from "@/pages/Root";
 import NotFoundPage from "@/pages/NotFound";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 /**
  * Router - Allow to take the url and render the adequate page.
@@ -26,7 +28,11 @@ const RouterConfig = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 };
 
 export default RouterConfig;

@@ -1,6 +1,11 @@
 .primary-header {
   --_primary-header-height: clamp(9rem, 7vw, 9.7rem);
 
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+
   height: var(--_primary-header-height);
   background-color: $clr-neutral-600;
   border-bottom: 1px solid $clr-neutral-100--80;

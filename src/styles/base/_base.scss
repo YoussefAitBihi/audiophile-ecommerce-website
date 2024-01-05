@@ -16,7 +16,7 @@ body {
   font-family: $ff-primary;
   font-size: $fs-body;
   font-weight: $fw-medium;
-  line-height: 1.5;
+  line-height: 1.67;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,6 +47,7 @@ h1,
 h2,
 h3 {
   line-height: 1;
+  word-break: break-word;
 }
 
 ul[role="list"],
@@ -71,6 +72,10 @@ button[class] {
 
 #root {
   isolation: isolate;
+
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
 }
 
 @media (prefers-reduced-motion: reduce) {

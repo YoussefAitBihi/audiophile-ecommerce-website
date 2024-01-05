@@ -15,6 +15,17 @@
   margin: auto;
 }
 
+.backdrop-400 {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: auto;
+  backdrop-filter: brightness(0.8);
+}
+
 .primary-heading {
   font-size: clamp($fs-800, 7vw + 0.2rem, $fs-1000);
   letter-spacing: clamp($ls-7, 0.2vw + 0.45px, $ls-10);
