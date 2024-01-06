@@ -1,0 +1,74 @@
+.section-products {
+  --_products-gap: 3rem;
+
+  &__list {
+    display: grid;
+    gap: var(--_products-gap);
+  }
+
+  &__product {
+    &--first {
+      --_product-padding-first: 2rem;
+
+      display: grid;
+      gap: 4rem;
+      justify-items: center;
+      background: no-repeat 50% -10rem / cover url(./src/assets/icons/pattern-circles.svg) $clr-primary-400;
+      color: $clr-neutral-100;
+      padding: calc(var(--_product-padding-first) * 2) var(--_product-padding-first);
+      overflow: hidden;
+
+      & > picture {
+        width: clamp(12rem, 25vw, 30rem);
+      }
+    }
+
+    &--second {
+      background: no-repeat right/cover url(./src/assets/images/home/mobile/image-speaker-zx7.jpg)
+        $clr-neutral-100;
+      padding-inline: 3rem;
+      height: clamp(30rem, 32vw, 40rem);
+    }
+  }
+
+  &__product-detail {
+    height: 100%;
+    display: grid;
+    gap: 3rem;
+    align-content: center;
+  }
+
+  @include respond-to("tablet") {
+    &__product {
+      &--first {
+        background-position: 50% -20rem;
+      }
+
+      &--second {
+        background-image: url(./src/assets/images/home/tablet/image-speaker-zx7.jpg);
+      }
+    }
+  }
+
+  @include respond-to("desktop") {
+    &__product {
+      &--first {
+        grid-auto-flow: column;
+        align-items: center;
+        background-position: -16rem 30%;
+        background-size: 70%;
+        padding-block: 0;
+
+        & > picture {
+          padding-top: calc(var(--_product-padding-first) * 2);
+          position: relative;
+          bottom: -8px;
+        }
+      }
+
+      &--second {
+        background-image: url(./src/assets/images/home/desktop/image-speaker-zx7.jpg);
+      }
+    }
+  }
+}

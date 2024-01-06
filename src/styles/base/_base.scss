@@ -13,9 +13,8 @@ html {
 
 body {
   min-height: 100dvh;
-  font-family: $ff-primary;
-  font-size: $fs-body;
-  font-weight: $fw-medium;
+  font: $fw-medium $fs-body $ff-primary;
+  color: $clr-neutral-700;
   line-height: 1.67;
   -webkit-font-smoothing: antialiased;
 }
@@ -64,7 +63,7 @@ a {
   text-decoration: none;
 }
 
-button[class] {
+button {
   background-color: transparent;
   border: none;
   cursor: pointer;
