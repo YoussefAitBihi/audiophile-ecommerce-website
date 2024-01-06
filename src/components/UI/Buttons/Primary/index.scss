@@ -3,12 +3,11 @@
   &:where(:link, :visited) {
     display: inline-block;
     width: fit-content;
-    margin-inline: auto;
     padding: 1.1em 2.2em;
     font-size: $fs-100;
     text-transform: uppercase;
     letter-spacing: $ls-4;
-    transition: background-color 0.2s ease-in;
+    transition: all 0.1s ease-in;
   }
 
   &--orange {
@@ -27,10 +26,7 @@
     &:is(:hover, :focus-visible) {
       background-color: $clr-neutral-900;
       color: $clr-neutral-100;
+      border: 1px solid $clr-neutral-900;
     }
-  }
-
-  @include respond-to("desktop") {
-    margin-inline: 0;
   }
 }

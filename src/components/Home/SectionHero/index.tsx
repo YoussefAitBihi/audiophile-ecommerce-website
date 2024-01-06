@@ -4,7 +4,7 @@ const SectionHero = () => {
   return (
     <section className="section-hero" aria-labelledby="xx99-mark-ii-headphones">
       <div className="container">
-        <div className="product-detail-grid">
+        <div className="product-detail-grid product-detail-grid--width-50">
           <div className="section-hero__header">
             <p className="new-product-text new-product-text--white">new product</p>
 

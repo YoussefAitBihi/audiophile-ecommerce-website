@@ -1,5 +1,5 @@
 .primary-navigation-mobile {
-  $padding: 8rem;
+  --_mobile-navigation-padding: 8rem;
   --_gap: 7rem;
   display: none;
 
@@ -8,7 +8,7 @@
     left: 0;
     top: var(--_primary-header-height);
     width: 100%;
-    padding: $padding 0 $padding / 2;
+    padding: var(--_mobile-navigation-padding) 0 var(--_mobile-navigation-padding) / 2;
     background-color: $clr-neutral-100;
     border-bottom-left-radius: $br-400;
     border-bottom-right-radius: $br-400;
@@ -16,19 +16,6 @@
     translate: 0 -100%;
     transition: all 0.01s;
     opacity: 0;
-  }
-
-  &__list-wrapper {
-    display: grid;
-    gap: var(--_gap);
-  }
-
-  @include respond-to("tablet") {
-    --_gap: 2rem;
-
-    &__list-wrapper {
-      grid-auto-flow: column;
-    }
   }
 }
 

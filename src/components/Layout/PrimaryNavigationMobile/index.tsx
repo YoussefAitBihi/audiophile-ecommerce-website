@@ -23,7 +23,7 @@ const PrimaryNavigationMobile = () => {
         onClick={(event) => event.stopPropagation()}
       >
         <div className="container">
-          <div className="primary-navigation-mobile__list-wrapper">
+          <div className="categories-grid">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink {...link} />
