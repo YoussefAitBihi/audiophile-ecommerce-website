@@ -2,7 +2,7 @@ import ProductPicture from "@/components/Product/Picture";
 
 export default function SectionCta() {
   return (
-    <section className="section-cta" aria-labelledby="section-cta-title">
+    <section className="section-cta section-fluid-margin" aria-labelledby="section-cta-title">
       <div className="container">
         <div className="product-grid product-grid--picture-first">
           <div className="product-detail-grid">

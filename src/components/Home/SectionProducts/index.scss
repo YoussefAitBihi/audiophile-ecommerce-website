@@ -26,8 +26,18 @@
     &--second {
       background: no-repeat right/cover url(./src/assets/images/home/mobile/image-speaker-zx7.jpg)
         $clr-neutral-100;
-      padding-inline: 3rem;
-      height: clamp(30rem, 32vw, 40rem);
+      // height: clamp(30rem, 32vw, 40rem);
+      height: 30rem;
+    }
+
+    &--third {
+      display: grid;
+      gap: 2rem;
+
+      & > div:last-of-type {
+        background-color: $clr-neutral-300;
+        padding: 3rem;
+      }
     }
   }
 
@@ -36,6 +46,7 @@
     display: grid;
     gap: 3rem;
     align-content: center;
+    padding-inline: 3rem;
   }
 
   @include respond-to("tablet") {
@@ -46,6 +57,10 @@
 
       &--second {
         background-image: url(./src/assets/images/home/tablet/image-speaker-zx7.jpg);
+      }
+
+      &--third {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   }
