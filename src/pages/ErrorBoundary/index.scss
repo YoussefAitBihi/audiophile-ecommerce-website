@@ -1,0 +1,27 @@
+.error-boundary-article {
+  &__content {
+    padding-block: 3rem;
+    position: relative;
+  }
+
+  &__illustration {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+  }
+
+  @include respond-to("desktop") {
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    &__illustration {
+      position: unset;
+      translate: unset;
+    }
+  }
+}

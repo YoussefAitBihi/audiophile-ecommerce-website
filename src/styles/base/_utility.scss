@@ -88,7 +88,7 @@
   }
 
   @include respond-to("desktop") {
-    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;
 
@@ -106,6 +106,7 @@
   display: grid;
   gap: $gap;
   justify-items: center;
+  align-content: center; // Center this element based on the grid container
   max-width: 60ch;
   margin-inline: auto;
   text-align: center;

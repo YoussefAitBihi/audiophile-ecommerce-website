@@ -7,7 +7,7 @@ import RootLayout from "@/pages/Root";
 import ErrorBoundaryPage from "@/pages/ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "@/store";
-import productsPreviewByCategoryLoader from "@/router/loaders/productsPreviewByCategory";
+import productsPreviewByCategoryLoader from "./loaders/productsPreviewByCategory";
 
 /**
  * Router - Allow to take the url and render the adequate page.

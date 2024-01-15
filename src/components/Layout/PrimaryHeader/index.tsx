@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import Logo from "@/components/UI/Links/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "@/store/slices/ui-slice";
-import { AppWideStateDescriptor } from "@/types/props";
+import { AppWideStateDescriptor } from "@/types";
 
 const PrimaryHeader = () => {
   const { pathname } = useLocation();

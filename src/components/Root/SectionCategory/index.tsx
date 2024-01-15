@@ -13,8 +13,8 @@ export default function SectionCategory() {
             All Categories
           </h2>
           <ul role="list" className="categories-grid">
-            {navLinks.map((link) => (
-              <li>
+            {navLinks.map((link, index) => (
+              <li key={index}>
                 <NavLink {...link} />
               </li>
             ))}

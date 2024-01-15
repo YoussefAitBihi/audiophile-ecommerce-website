@@ -1,4 +1,4 @@
-import ProductPicture from "@/components/Product/Picture";
+import ProductPicture from "@/components/UI/Picture";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 
 const SectionProducts = () => {

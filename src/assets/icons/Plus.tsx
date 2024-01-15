@@ -12,8 +12,8 @@ const PlusIcon = () => {
         d="M4 12H20M12 4V20"
         stroke="#000000"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

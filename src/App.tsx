@@ -1,4 +1,4 @@
-import RouterConfig from "./config/Router";
+import RouterConfig from "./router";
 
 function App() {
   return <RouterConfig />;

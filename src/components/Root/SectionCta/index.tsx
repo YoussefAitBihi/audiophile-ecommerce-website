@@ -1,4 +1,4 @@
-import ProductPicture from "@/components/Product/Picture";
+import Picture from "@/components/UI/Picture";
 
 export default function SectionCta() {
   return (
@@ -17,7 +17,7 @@ export default function SectionCta() {
               Audiophile the best place to buy your portable audio equipment.
             </p>
           </div>
-          <ProductPicture
+          <Picture
             desktop="./src/assets/images/shared/desktop/image-best-gear.jpg"
             tablet="./src/assets/images/shared/tablet/image-best-gear.jpg"
             mobile="./src/assets/images/shared/mobile/image-best-gear.jpg"

@@ -1,18 +1,17 @@
-import { useParams, json } from "react-router-dom";
-import { categories } from "@/data";
+import { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const CategoryPage = () => {
-  const { slug } = useParams();
-  const category = categories.find((category) => category.slug === slug);
+  const data = useLoaderData();
 
-  if (!category) {
-    throw json({ message: "We're having trouble fetching this category!" }, { status: 404 });
-  }
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <>
       <header className="category-header">
-        <h1 className="secondary-heading">{category!.title}</h1>
+        {/* <h1 className="secondary-heading">{category!.title}</h1> */}
       </header>
     </>
   );

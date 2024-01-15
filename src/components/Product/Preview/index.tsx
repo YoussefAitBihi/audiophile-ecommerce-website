@@ -1,12 +1,12 @@
-import { ProductItemProps } from "@/types/props";
 import { FC } from "react";
-import ProductPicture from "../Picture";
+import Picture from "@/components/UI/Picture";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
+import { ProductPreviewDescriptor } from "@/types";
 
-const ProductItem: FC<ProductItemProps> = (product) => {
+const ProductPreview: FC<ProductPreviewDescriptor> = (product) => {
   return (
     <article className="product-item">
-      <ProductPicture {...product} alt={`${product.title} picture`} />
+      <Picture {...product.previewPicture} />
       <div className="product-detail-grid">
         <div>
           <p className="new-product-text">new product</p>
@@ -21,4 +21,4 @@ const ProductItem: FC<ProductItemProps> = (product) => {
   );
 };
 
-export default ProductItem;
+export default ProductPreview;

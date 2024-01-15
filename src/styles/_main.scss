@@ -16,14 +16,16 @@
 @import "../components/UI/Buttons/Secondary/index.scss";
 @import "../components/UI/Buttons/Primary/index.scss";
 @import "../components/UI/SocialMediaLinks/index.scss";
+@import "../components/UI/Skeletons/ProductPreview/index.scss";
 
 @import "../components/Cart/index.scss";
 @import "../components/Cart/Modal/index.scss";
 @import "../components/Cart/Item/index.scss";
 
-@import "../components/Product/Item/index.scss";
+@import "../components/Product/Preview/index.scss";
 
 @import "../components/Home/SectionHero/index.scss";
 @import "../components/Home/SectionProducts/index.scss";
 
 @import "../pages/Category/index.scss";
+@import "../pages/ErrorBoundary/index.scss";

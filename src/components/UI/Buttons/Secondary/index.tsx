@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
 import ArrowRightIcon from "@/assets/icons/ArrowRight";
 
-const SecondaryButton = ({ href }: { href: string }) => {
+const SecondaryButton = () => {
   return (
-    <Link to={href} className="secondary-button">
+    <button className="secondary-button">
       shop <ArrowRightIcon />
-    </Link>
+    </button>
   );
 };
 
