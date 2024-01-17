@@ -1,16 +1,16 @@
-import ProductPicture from "@/components/UI/Picture";
+import Picture from "@/components/UI/Picture";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 
 const SectionProducts = () => {
   return (
-    <section className="section-products section-fluid-margin" aria-labelledby="section-products">
+    <section className="section-products fluid-margin-400" aria-labelledby="section-products">
       <div className="container">
         <h2 className="visually-hidden" id="section-products">
           Top products
         </h2>
         <ul role="list" className="section-products__list">
           <li className="section-products__product section-products__product--first | border-radius-300">
-            <ProductPicture
+            <Picture
               desktop="./src/assets/images/home/desktop/image-speaker-zx9.png"
               tablet="./src/assets/images/home/tablet/image-speaker-zx9.png"
               mobile="./src/assets/images/home/mobile/image-speaker-zx9.png"
@@ -37,7 +37,7 @@ const SectionProducts = () => {
           </li>
           <li className="section-products__product section-products__product--third">
             <div>
-              <ProductPicture
+              <Picture
                 desktop="./src/assets/images/home/desktop/image-earphones-yx1.jpg"
                 tablet="./src/assets/images/home/tablet/image-earphones-yx1.jpg"
                 mobile="./src/assets/images/home/mobile/image-earphones-yx1.jpg"

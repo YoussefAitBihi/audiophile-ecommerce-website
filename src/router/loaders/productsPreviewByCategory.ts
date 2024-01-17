@@ -15,7 +15,7 @@ const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => 
     .eq("slug", params.slug);
 
   if (error) {
-    throw json({ message: error.message }, { status: 500 }); // Later
+    throw json({ title: error.hint, message: error.message }, { status: 500 }); // Later
   }
 
   if (!categoryWithProducts?.length) {

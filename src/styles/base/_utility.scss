@@ -60,7 +60,7 @@
   border-radius: $br-300;
 }
 
-.section-fluid-margin {
+.fluid-margin-400 {
   margin-bottom: clamp(5rem, 10dvw, 10rem);
 }
 
@@ -81,10 +81,8 @@
   display: grid;
   gap: 4rem;
 
-  &--picture-first {
-    & > picture {
-      order: -1;
-    }
+  & > picture {
+    order: -1;
   }
 
   @include respond-to("desktop") {
@@ -92,9 +90,16 @@
     justify-content: space-between;
     align-items: center;
 
+    & > picture {
+      width: 70%;
+      justify-self: end;
+      order: unset;
+    }
+
     &--picture-first {
       & > picture {
-        order: unset;
+        justify-self: start;
+        order: -1;
       }
     }
   }

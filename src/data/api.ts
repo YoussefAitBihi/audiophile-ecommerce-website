@@ -2,7 +2,11 @@ import { slugify } from "@/helpers";
 import supabase from "@/config/supabase-client";
 import { faker } from "@faker-js/faker";
 import { categories, products, productPreviewImages } from "@/data";
-import { json } from "react-router-dom";
+
+// Creation of DB
+// Create Tables
+// Truncate Data
+// Insert Data
 
 /**
  * Insert categories to DB
@@ -79,7 +83,7 @@ export const storeProductsInDB = async () => {
 /**
  * Insert associated preview images to DB
  */
-export const storeProductPreviewImagesInDB = async () => {
+export const storeProductsPreviewImagesInDB = async () => {
   for (const image of productPreviewImages) {
     const { alt } = image;
     let updatedPreviewImage;
@@ -96,8 +100,6 @@ export const storeProductPreviewImagesInDB = async () => {
 
       updatedPreviewImage = { ...image, product_id: productId[0].id };
 
-      console.log(updatedPreviewImage);
-
       try {
         await supabase.from("product-preview-images").insert([updatedPreviewImage]);
       } catch (error) {
@@ -110,26 +112,5 @@ export const storeProductPreviewImagesInDB = async () => {
         "We're unable to retrieve the product! Check your internet connection, Your SUPABASE URL/KEY or You don't create a new policy yet"
       );
     }
-  }
-};
-
-export const fetchProductsByCategory = async (slug: string) => {
-  try {
-    // if (!category) {
-    //   throw json({ message: "We're unable to find this category!" }, { status: 404 });
-    // }
-    // try {
-    //   const { data: products } = await supabase
-    //     .from("product")
-    //     .select("*")
-    //     .eq("category_id", category[0].id);
-    //   console.log(products);
-    // } catch (error) {
-    //   throw new Error("We're unable to fetch products");
-    // }
-  } catch (error) {
-    throw new Error(
-      "We're unable to get this category! Check your connection, Your SUPABASE URL/KEY or You don't create a new policy yet"
-    );
   }
 };

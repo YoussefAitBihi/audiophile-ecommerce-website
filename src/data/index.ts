@@ -3,19 +3,19 @@ import { slugify } from "@/helpers";
 export const navLinks = [
   {
     title: "headphones",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-headphones.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-headphones.png",
     href: "/category/headphones",
     alt: "Headphone",
   },
   {
     title: "speakers",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-speakers.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-speakers.png",
     href: "/category/speakers",
     alt: "Speaker",
   },
   {
     title: "earphones",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-earphones.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-earphones.png",
     href: "/category/earphones",
     alt: "Earphone",
   },
@@ -98,39 +98,45 @@ export const products = [
 
 export const productPreviewImages = [
   {
-    desktop: "/product-xx59-headphones/desktop/image-category-page-preview.jpg",
-    tablet: "/product-xx59-headphones/tablet/image-category-page-preview.jpg",
-    mobile: "/product-xx59-headphones/mobile/image-category-page-preview.jpg",
+    desktop: "/src/assets/images/product-xx59-headphones/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-xx59-headphones/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-xx59-headphones/mobile/image-category-page-preview.jpg",
     alt: "XX59 Headphones",
   },
   {
-    desktop: "/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
-    tablet: "/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg",
-    mobile: "/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg",
+    desktop:
+      "/src/assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
+    tablet:
+      "/src/assets/images/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg",
+    mobile:
+      "/src/assets/images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg",
     alt: "XX99 Mark I Headphones",
   },
   {
-    desktop: "/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg",
-    tablet: "/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg",
-    mobile: "/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg",
+    desktop:
+      "/src/assets/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg",
+    tablet:
+      "/src/assets/images/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg",
+    mobile:
+      "/src/assets/images/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg",
     alt: "XX99 Mark II Headphones",
   },
   {
-    desktop: "/product-yx1-earphones/desktop/image-category-page-preview.jpg",
-    tablet: "/product-yx1-earphones/tablet/image-category-page-preview.jpg",
-    mobile: "/product-yx1-earphones/mobile/image-category-page-preview.jpg",
+    desktop: "/src/assets/images/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-yx1-earphones/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-yx1-earphones/mobile/image-category-page-preview.jpg",
     alt: "YX1 WIRELESS EARPHONES",
   },
   {
-    desktop: "/product-zx7-speaker/desktop/image-category-page-preview.jpg",
-    tablet: "/product-zx7-speaker/tablet/image-category-page-preview.jpg",
-    mobile: "/product-zx7-speaker/mobile/image-category-page-preview.jpg",
+    desktop: "/src/assets/images/product-zx7-speaker/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-zx7-speaker/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-zx7-speaker/mobile/image-category-page-preview.jpg",
     alt: "ZX7 SPEAKER",
   },
   {
-    desktop: "/product-zx9-speaker/desktop/image-category-page-preview.jpg",
-    tablet: "/product-zx9-speaker/tablet/image-category-page-preview.jpg",
-    mobile: "/product-zx9-speaker/mobile/image-category-page-preview.jpg",
+    desktop: "/src/assets/images/product-zx9-speaker/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-zx9-speaker/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-zx9-speaker/mobile/image-category-page-preview.jpg",
     alt: "ZX9 SPEAKER",
   },
 ];

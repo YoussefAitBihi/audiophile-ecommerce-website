@@ -2,7 +2,7 @@ import Picture from "@/components/UI/Picture";
 
 export default function SectionCta() {
   return (
-    <section className="section-cta section-fluid-margin" aria-labelledby="section-cta-title">
+    <section className="section-cta fluid-margin-400" aria-labelledby="section-cta-title">
       <div className="container">
         <div className="product-grid product-grid--picture-first">
           <div className="product-detail-grid">
@@ -18,9 +18,9 @@ export default function SectionCta() {
             </p>
           </div>
           <Picture
-            desktop="./src/assets/images/shared/desktop/image-best-gear.jpg"
-            tablet="./src/assets/images/shared/tablet/image-best-gear.jpg"
-            mobile="./src/assets/images/shared/mobile/image-best-gear.jpg"
+            desktop="/src/assets/images/shared/desktop/image-best-gear.jpg"
+            tablet="/src/assets/images/shared/tablet/image-best-gear.jpg"
+            mobile="/src/assets/images/shared/mobile/image-best-gear.jpg"
             alt="Best gear ever"
           />
         </div>
