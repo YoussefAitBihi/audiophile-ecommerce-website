@@ -1,33 +1,30 @@
 import { ReactNode } from "react";
 
-export interface PictureProps {
+export interface PictureDescriptor {
   desktop: string;
   tablet: string;
   mobile: string;
   alt: string;
 }
 
-export interface ProductItemProps extends PictureProps {
+export interface ProductDescriptor {
   id: string;
   title: string;
   description: string;
+  price: number;
   slug: string;
   isNew: boolean;
   categoryId: string;
 }
 
-export interface ProductDetailProps extends ProductItemProps {
-  features: string;
+export interface ProductPreviewDescriptor extends ProductDescriptor {
+  previewImages: PictureDescriptor;
 }
 
-// export type ProductItemProps = {
-//   id: string;
-//   title: string;
-//   description: string;
-//   picture: PictureProps;
-//   slug: string;
-//   isNew: boolean;
-// };
+export interface ProductsPreviewByCategoryDescriptor {
+  name: string;
+  products: ProductPreviewDescriptor[];
+}
 
 export type NavLinkProps = {
   title: string;

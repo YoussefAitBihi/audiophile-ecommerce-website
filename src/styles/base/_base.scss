@@ -77,6 +77,31 @@ button {
   grid-template-rows: min-content 1fr min-content;
 }
 
+.main-content--homepage {
+  display: grid;
+  grid-template-areas:
+    "section-hero"
+    "section-category"
+    "section-products"
+    "section-cta";
+
+  & > .section-hero {
+    grid-area: section-hero;
+  }
+
+  & > .section-category {
+    grid-area: section-category;
+  }
+
+  & > .section-products {
+    grid-area: section-products;
+  }
+
+  & > .section-cta {
+    grid-area: section-cta;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;

@@ -12,8 +12,8 @@ const MinusIcon = () => {
         d="M6 12L18 12"
         stroke="#000000"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -4,9 +4,10 @@ import CategoryPage from "@/pages/Category";
 import ProductDetailPage from "@/pages/ProductDetail";
 import CheckoutPage from "@/pages/Checkout";
 import RootLayout from "@/pages/Root";
-import NotFoundPage from "@/pages/NotFound";
+import ErrorBoundaryPage from "@/pages/ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "@/store";
+import productsPreviewByCategoryLoader from "./loaders/productsPreviewByCategory";
 
 /**
  * Router - Allow to take the url and render the adequate page.
@@ -18,10 +19,14 @@ const RouterConfig = () => {
     {
       path: "/",
       element: <RootLayout />,
-      errorElement: <NotFoundPage />,
+      errorElement: <ErrorBoundaryPage />,
       children: [
         { index: true, element: <HomePage /> },
-        { path: "category/:slug", element: <CategoryPage /> },
+        {
+          path: "category/:slug",
+          element: <CategoryPage />,
+          loader: productsPreviewByCategoryLoader,
+        },
         { path: "product/:slug", element: <ProductDetailPage /> },
         { path: "checkout", element: <CheckoutPage /> },
       ],

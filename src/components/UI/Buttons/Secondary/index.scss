@@ -1,21 +1,19 @@
 .secondary-button {
-  &:where(:link, :visited) {
-    font-size: $fs-100;
-    text-transform: uppercase;
-    color: $clr-neutral-900;
-    letter-spacing: $ls-4;
+  font-size: $fs-100;
+  text-transform: uppercase;
+  color: $clr-neutral-900;
+  letter-spacing: $ls-4;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-    & > svg {
-      margin-left: 0.5rem;
-      transition: all 0.2s ease-in;
-    }
+  & > svg {
+    margin-left: 0.5rem;
+    transition: all 0.2s ease-in;
+  }
 
-    &:is(:hover, :focus-visible) {
-      @include change-state-nav-link();
-    }
+  &:is(:hover, :focus-visible) {
+    @include change-state-nav-link();
   }
 }

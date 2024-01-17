@@ -10,3 +10,18 @@ export const handleActiveLink = ({ isActive }: { isActive: boolean }) => {
 
   return classesLink;
 };
+
+/**
+ * Slugify a text
+ * @param text a string which you want to slugify it
+ * @returns
+ */
+export const slugify = (text: string) => {
+  const textLowerCase = text.toLowerCase().trim();
+
+  if (textLowerCase.indexOf(" ") === -1) return textLowerCase;
+
+  const slugifiedText = textLowerCase.replace(/ /g, "-");
+
+  return slugifiedText;
+};

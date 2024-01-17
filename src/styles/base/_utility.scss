@@ -8,15 +8,15 @@
   width: 1px;
 }
 
+.text-primary-400 {
+  color: $clr-primary-400;
+}
+
 .container {
   $max-width: 80em;
   --_padding: 2rem;
   width: min($max-width, 100% - var(--_padding) * 2);
   margin: auto;
-}
-
-.text-primary-400 {
-  color: $clr-primary-400;
 }
 
 .backdrop-400 {
@@ -35,9 +35,12 @@
   letter-spacing: clamp($ls-7, 0.2vw + 0.45px, $ls-10);
   text-transform: uppercase;
   color: $clr-neutral-100;
+
+  &--black {
+    color: $clr-neutral-900;
+  }
 }
 
-// category = product item ! color, letter-spacing (mobile)
 .secondary-heading {
   font-size: clamp($fs-600, 5vw + 0.2rem, $fs-900);
   text-transform: uppercase;
@@ -57,6 +60,10 @@
   border-radius: $br-300;
 }
 
+.fluid-margin-400 {
+  margin-bottom: clamp(5rem, 10dvw, 10rem);
+}
+
 .new-product-text {
   font-size: $fs-200;
   font-weight: $fw-regular;
@@ -74,20 +81,25 @@
   display: grid;
   gap: 4rem;
 
-  &--picture-first {
-    & > picture {
-      order: -1;
-    }
+  & > picture {
+    order: -1;
   }
 
   @include respond-to("desktop") {
-    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;
 
+    & > picture {
+      width: 70%;
+      justify-self: end;
+      order: unset;
+    }
+
     &--picture-first {
       & > picture {
-        order: unset;
+        justify-self: start;
+        order: -1;
       }
     }
   }
@@ -99,6 +111,7 @@
   display: grid;
   gap: $gap;
   justify-items: center;
+  align-content: center; // Center this element based on the grid container
   max-width: 60ch;
   margin-inline: auto;
   text-align: center;

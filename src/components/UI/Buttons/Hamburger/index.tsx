@@ -1,5 +1,5 @@
 import HamburgerIcon from "@/assets/icons/Hamburger";
-import { HamburgerButtonProps } from "@/types/props";
+import { HamburgerButtonProps } from "@/types";
 import { FC } from "react";
 
 const HamburgerButton: FC<HamburgerButtonProps> = ({ mobileNavigationIsShown, onClick }) => {

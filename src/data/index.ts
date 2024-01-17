@@ -1,61 +1,147 @@
+import { slugify } from "@/helpers";
+
 export const navLinks = [
   {
     title: "headphones",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-headphones.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-headphones.png",
     href: "/category/headphones",
-    alt: "A headphone thumbnail",
+    alt: "Headphone",
   },
   {
     title: "speakers",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-speakers.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-speakers.png",
     href: "/category/speakers",
-    alt: "A speaker thumbnail",
+    alt: "Speaker",
   },
   {
     title: "earphones",
-    imageURL: "./src/assets/images/shared/desktop/image-category-thumbnail-earphones.png",
+    imageURL: "/src/assets/images/shared/desktop/image-category-thumbnail-earphones.png",
     href: "/category/earphones",
-    alt: "A earphone thumbnail",
+    alt: "Earphone",
   },
 ];
 
 export const categories = [
   {
-    id: "cat-1",
     title: "headphones",
-    description: "This a the headphones category",
-    slug: "headphones",
+    description: "This is the headphone category",
+    slug: (function () {
+      return slugify("headphones");
+    })(),
   },
   {
-    id: "cat-2",
     title: "speakers",
-    description: "This a the speakers category",
-    slug: "speakers",
+    description: "This is the speaker category",
+    slug: (function () {
+      return slugify("speakers");
+    })(),
   },
   {
-    id: "cat-3",
     title: "earphones",
-    description: "This a the earphones category",
-    slug: "earphones",
+    description: "This is the earphone category",
+    slug: (function () {
+      return slugify("earphones");
+    })(),
   },
 ];
 
 export const products = [
   {
-    id: "pro-1",
     title: "XX59 Headphones",
-    description:
-      "Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.",
-    price: 899,
-    slug: "xx59-headphones",
-    isNew: false,
-    features:
-      "These headphones have been created from durable, high-quality materials tough enough to take anywhere. Its compact folding design fuses comfort and minimalist style making it perfect for travel. Flawless transmission is assured by the latest wireless technology engineered for audio synchronization with videos. More than a simple pair of headphones, this headset features a pair of built-in microphones for clear, hands-free calling when paired with a compatible smartphone. Controlling music and calls is also intuitive thanks to easy-access touch buttons on the earcups. Regardless of how you use the XX59 headphones, you can do so all day thanks to an impressive 30-hour battery life that can be rapidly recharged via USB-C.",
-    categoryId: "cat-1",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
+  },
+  {
+    title: "XX99 Mark I Headphones",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
+  },
+  {
+    title: "XX99 Mark II Headphones",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
+  },
+  {
+    title: "ZX7 SPEAKER",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
+  },
+  {
+    title: "ZX9 SPEAKER",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
+  },
+  {
+    title: "YX1 WIRELESS EARPHONES",
+    description: null,
+    price: null,
+    slug: null,
+    is_new: null,
+    features: null,
   },
 ];
 
-export const productImages = [
+export const productPreviewImages = [
+  {
+    desktop: "/src/assets/images/product-xx59-headphones/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-xx59-headphones/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-xx59-headphones/mobile/image-category-page-preview.jpg",
+    alt: "XX59 Headphones",
+  },
+  {
+    desktop:
+      "/src/assets/images/product-xx99-mark-one-headphones/desktop/image-category-page-preview.jpg",
+    tablet:
+      "/src/assets/images/product-xx99-mark-one-headphones/tablet/image-category-page-preview.jpg",
+    mobile:
+      "/src/assets/images/product-xx99-mark-one-headphones/mobile/image-category-page-preview.jpg",
+    alt: "XX99 Mark I Headphones",
+  },
+  {
+    desktop:
+      "/src/assets/images/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg",
+    tablet:
+      "/src/assets/images/product-xx99-mark-two-headphones/tablet/image-category-page-preview.jpg",
+    mobile:
+      "/src/assets/images/product-xx99-mark-two-headphones/mobile/image-category-page-preview.jpg",
+    alt: "XX99 Mark II Headphones",
+  },
+  {
+    desktop: "/src/assets/images/product-yx1-earphones/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-yx1-earphones/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-yx1-earphones/mobile/image-category-page-preview.jpg",
+    alt: "YX1 WIRELESS EARPHONES",
+  },
+  {
+    desktop: "/src/assets/images/product-zx7-speaker/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-zx7-speaker/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-zx7-speaker/mobile/image-category-page-preview.jpg",
+    alt: "ZX7 SPEAKER",
+  },
+  {
+    desktop: "/src/assets/images/product-zx9-speaker/desktop/image-category-page-preview.jpg",
+    tablet: "/src/assets/images/product-zx9-speaker/tablet/image-category-page-preview.jpg",
+    mobile: "/src/assets/images/product-zx9-speaker/mobile/image-category-page-preview.jpg",
+    alt: "ZX9 SPEAKER",
+  },
+];
+
+export const productImage = [
   {
     id: "pro-img-1",
     desktop: "./src/assets/images/product-xx59-headphones/desktop/image-product.jpg",
@@ -85,16 +171,6 @@ export const galleries = [
     desktop: "./src/assets/images/product-xx59-headphones/desktop/image-gallery-3.jpg",
     tablet: "./src/assets/images/product-xx59-headphones/tablet/image-gallery-3.jpg",
     mobile: "./src/assets/images/product-xx59-headphones/mobile/image-gallery-3.jpg",
-    productId: "pro-1",
-  },
-];
-
-export const productPreview = [
-  {
-    id: "prev-1",
-    desktop: "./src/assets/images/product-xx59-headphones/desktop/image-category-page-preview.jpg",
-    tablet: "./src/assets/images/product-xx59-headphones/tablet/image-category-page-preview.jpg",
-    mobile: "./src/assets/images/product-xx59-headphones/mobile/image-category-page-preview.jpg",
     productId: "pro-1",
   },
 ];

@@ -1,0 +1,70 @@
+.product-skeleton {
+  display: grid;
+  gap: 3rem 6rem;
+  margin-bottom: 8rem;
+
+  &__picture {
+    height: 50rem;
+    border-radius: 0.6rem;
+  }
+
+  &__detail {
+    display: grid;
+    gap: 3rem;
+  }
+
+  &__title {
+    height: 2rem;
+  }
+
+  &__description {
+    display: grid;
+    gap: 1rem;
+
+    & > div {
+      height: 1rem;
+    }
+
+    & > div:last-of-type {
+      width: 50%;
+    }
+  }
+
+  &__button {
+    width: 15rem;
+    height: 4.5rem;
+  }
+
+  &__title,
+  &__description > div {
+    border-radius: 2.5rem;
+  }
+
+  &__picture,
+  &__title,
+  &__description > div,
+  &__button {
+    background-color: $clr-neutral-300;
+  }
+
+  @include respond-to("desktop") {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+.skeleton {
+  animation: skeleton-loading 2s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: $clr-neutral-200;
+    scale: 0.98;
+  }
+
+  100% {
+    background-color: $clr-neutral-400;
+    scale: 1;
+  }
+}

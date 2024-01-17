@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UIStateDescriptor } from "@/types/props";
+import { UIStateDescriptor } from "@/types";
 
 const initialState = {
   mobileNavigationIsShown: false,
