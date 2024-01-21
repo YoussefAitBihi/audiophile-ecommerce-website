@@ -13,7 +13,7 @@
       display: grid;
       gap: 4rem;
       justify-items: center;
-      background: no-repeat 50% -10rem / cover url(./src/assets/icons/pattern-circles.svg) $clr-primary-400;
+      background: no-repeat 50% -10rem / cover url(/src/assets/icons/pattern-circles.svg) $clr-primary-400;
       color: $clr-neutral-100;
       padding: calc(var(--_product-padding-first) * 2) var(--_product-padding-first);
       overflow: hidden;
@@ -56,7 +56,7 @@
       }
 
       &--second {
-        background-image: url(./src/assets/images/home/tablet/image-speaker-zx7.jpg);
+        background-image: url(/src/assets/images/home/tablet/image-speaker-zx7.jpg);
       }
 
       &--third {
@@ -82,7 +82,7 @@
       }
 
       &--second {
-        background-image: url(./src/assets/images/home/desktop/image-speaker-zx7.jpg);
+        background-image: url(/src/assets/images/home/desktop/image-speaker-zx7.jpg);
       }
     }
   }

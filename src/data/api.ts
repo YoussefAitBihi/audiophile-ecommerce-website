@@ -1,116 +1,90 @@
 import { slugify } from "@/helpers";
 import supabase from "@/config/supabase-client";
 import { faker } from "@faker-js/faker";
-import { categories, products, productPreviewImages } from "@/data";
+import {
+  categories,
+  products,
+  productPreviewImages,
+  productImages,
+  galleries,
+  accessoriesProduct,
+} from "@/data";
 
-// Creation of DB
-// Create Tables
-// Truncate Data
-// Insert Data
+// TODO: Creation of DB
+// TODO: Create Tables
+// TODO: Truncate Data
+// TODO: Insert Data
 
 /**
- * Insert categories to DB
+ * Store data to DB
  */
-export const storeCategoriesInDB = async () => {
+export const storeDataToDB = async () => {
+  // Categories
   for (const category of categories) {
-    try {
-      const { error } = await supabase.from("category").insert([category]);
+    const { error } = await supabase.from("category").insert([category]);
 
-      if (error) {
-        throw new Error(
-          "We are unable to insert this category to DB! Check your connection, Your API KEY or API URL"
-        );
-      }
-    } catch (error) {
-      throw new Error(
-        "There was an error when inserting categories to DB! Check your connection, Your API KEY or API URL"
-      );
+    if (error) {
+      throw new Error(error.message);
     }
   }
-};
 
-/**
- * Insert associated product to DB
- */
-export const storeProductsInDB = async () => {
+  // Products
   for (const product of products) {
-    const { title } = product;
-    const categoryTitle = title.split(" ").pop();
-    let updatedProduct;
+    const description = faker.commerce.productDescription();
+    const price = Number.parseFloat(faker.commerce.price({ min: 800, max: 1400, dec: 2 }));
+    const slug = slugify(product.title);
+    const is_new = faker.datatype.boolean();
+    const features = faker.commerce.productDescription();
 
-    try {
-      const { data: category } = await supabase
-        .from("category")
-        .select("*")
-        .ilike("title", `%${categoryTitle}%`);
+    const updatedProduct = {
+      ...product,
+      description,
+      price,
+      slug,
+      is_new,
+      features,
+    };
 
-      if (!category) {
-        throw new Error("We're unable to retrieve this specific category!");
-      }
+    const { error } = await supabase.from("product").insert([updatedProduct]);
 
-      const description = faker.commerce.productDescription();
-      const price = Number.parseFloat(faker.commerce.price({ min: 800, max: 1400, dec: 2 }));
-      const slug = slugify(product.title);
-      const is_new = faker.datatype.boolean();
-      const features = faker.commerce.productDescription();
-      const category_id = category[0].id;
-
-      updatedProduct = {
-        ...product,
-        description,
-        price,
-        slug,
-        is_new,
-        features,
-        category_id,
-      };
-    } catch (error) {
-      throw new Error(
-        "There was an error when retrieving this category! Check your connection, Your API KEY or API URL"
-      );
-    }
-
-    try {
-      await supabase.from("product").insert([updatedProduct]);
-    } catch (error) {
-      throw new Error(
-        "There was an error when inserting products to DB! Check your connection, Your API KEY or API URL"
-      );
+    if (error) {
+      throw new Error(error.message);
     }
   }
-};
 
-/**
- * Insert associated preview images to DB
- */
-export const storeProductsPreviewImagesInDB = async () => {
+  // Product Preview Images
   for (const image of productPreviewImages) {
-    const { alt } = image;
-    let updatedPreviewImage;
+    const { error } = await supabase.from("product-preview-images").insert([image]);
 
-    try {
-      const { data: productId } = await supabase
-        .from("product")
-        .select("id")
-        .ilike("title", `%${alt}%`);
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
 
-      if (!productId) {
-        throw new Error("There was an error when fetching the product ID");
-      }
+  // Product Images
+  for (const productImage of productImages) {
+    const { error } = await supabase.from("product-images").insert([productImage]);
 
-      updatedPreviewImage = { ...image, product_id: productId[0].id };
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
 
-      try {
-        await supabase.from("product-preview-images").insert([updatedPreviewImage]);
-      } catch (error) {
-        throw new Error(
-          "We're unable to insert this preview image! Check your internet connection, Your SUPABASE URL/KEY or You don't create a new policy yet"
-        );
-      }
-    } catch (error) {
-      throw new Error(
-        "We're unable to retrieve the product! Check your internet connection, Your SUPABASE URL/KEY or You don't create a new policy yet"
-      );
+  // Gallery
+  for (const gallery of galleries) {
+    const { error } = await supabase.from("gallery").insert([gallery]);
+
+    if (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  // Accessory
+  for (const accessory of accessoriesProduct) {
+    const { error } = await supabase.from("accessory").insert([accessory]);
+
+    if (error) {
+      throw new Error(error.message);
     }
   }
 };

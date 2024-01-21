@@ -1,9 +1,10 @@
-import { ProductPreviewDescriptor } from "@/types";
+import { ProductMainDetailDescriptor } from "@/types";
 import { FC } from "react";
 import ProductPreview from "../Preview";
 
-const ProductList: FC<{ products: ProductPreviewDescriptor[] }> = ({ products }) => {
+const ProductsList: FC<{ products: ProductMainDetailDescriptor[] }> = ({ products }) => {
   const lastProduct = products.slice(-1).pop();
+
   return (
     <ul className="product-preview-list" role="list">
       {products.map((product, index) => (
@@ -20,4 +21,4 @@ const ProductList: FC<{ products: ProductPreviewDescriptor[] }> = ({ products })
   );
 };
 
-export default ProductList;
+export default ProductsList;

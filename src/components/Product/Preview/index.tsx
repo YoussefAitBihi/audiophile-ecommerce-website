@@ -1,15 +1,15 @@
 import { FC } from "react";
 import Picture from "@/components/UI/Picture";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
-import { ProductPreviewDescriptor } from "@/types";
+import { ProductMainDetailDescriptor } from "@/types";
 
-const ProductPreview: FC<{ product: ProductPreviewDescriptor; index: number }> = ({
+const ProductPreview: FC<{ product: ProductMainDetailDescriptor; index: number }> = ({
   product,
   index,
 }) => {
   return (
     <article
-      className={`product-preview-item | product-grid ${
+      className={`product-item | product-grid ${
         index % 2 === 0 ? "product-grid--picture-first" : ""
       }`}
     >
@@ -23,7 +23,7 @@ const ProductPreview: FC<{ product: ProductPreviewDescriptor; index: number }> =
           see product
         </PrimaryButton>
       </div>
-      <Picture {...product.previewImages} />
+      <Picture {...product.picture} alt={product.title} />
     </article>
   );
 };

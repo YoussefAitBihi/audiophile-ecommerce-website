@@ -8,6 +8,7 @@ import ErrorBoundaryPage from "@/pages/ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "@/store";
 import productsPreviewByCategoryLoader from "./loaders/productsPreviewByCategory";
+import productDetailLoader from "./loaders/productDetail";
 
 /**
  * Router - Allow to take the url and render the adequate page.
@@ -27,7 +28,11 @@ const RouterConfig = () => {
           element: <CategoryPage />,
           loader: productsPreviewByCategoryLoader,
         },
-        { path: "product/:slug", element: <ProductDetailPage /> },
+        {
+          path: "product/:slug",
+          element: <ProductDetailPage />,
+          loader: productDetailLoader,
+        },
         { path: "checkout", element: <CheckoutPage /> },
       ],
     },

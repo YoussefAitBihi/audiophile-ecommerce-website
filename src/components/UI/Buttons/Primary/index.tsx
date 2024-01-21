@@ -7,7 +7,7 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({ tag, children, href, modifier }
     <button className={`primary-button primary-button--${modifier}`}>{children}</button>
   );
 
-  if (tag === "link") {
+  if (tag === "link" && href) {
     primaryButtonContent = (
       <Link to={href} className={`primary-button primary-button--${modifier}`}>
         {children}
