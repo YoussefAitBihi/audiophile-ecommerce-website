@@ -1,13 +1,12 @@
 import supabase from "@/config/supabase-client";
-import { ProductsPreviewByCategoryDescriptor } from "@/types";
+import { LoaderDefinition, ProductsPreviewByCategoryDescriptor } from "@/types";
 import { json } from "react-router-dom";
 
-type LoaderDefinition = {
-  params: {
-    slug: string;
-  };
-};
-
+/**
+ * Allow to retrieve products by category
+ * @param param0
+ * @returns
+ */
 const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => {
   const { data: categoryWithProducts, error } = await supabase
     .from("category")
@@ -37,7 +36,7 @@ const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => 
   };
 
   for (const product of products) {
-    const { data: previewImages, error } = await supabase
+    const { data: picture, error } = await supabase
       .from("product-preview-images")
       .select("*")
       .eq("product_id", product.id);
@@ -46,7 +45,7 @@ const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => 
       throw json({ title: error.hint, message: error.message }, { status: 500 });
     }
 
-    if (!previewImages.length) {
+    if (!picture.length) {
       throw json(
         {
           title: "Product preview Images not found",
@@ -60,11 +59,11 @@ const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => 
     const transformedProduct = {
       ...product,
       isNew: product.is_new,
-      previewImages: {
-        desktop: previewImages[0].desktop,
-        tablet: previewImages[0].tablet,
-        mobile: previewImages[0].mobile,
-        alt: previewImages[0].alt,
+      picture: {
+        desktop: picture[0].desktop,
+        tablet: picture[0].tablet,
+        mobile: picture[0].mobile,
+        alt: picture[0].alt,
       },
     };
 

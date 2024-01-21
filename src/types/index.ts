@@ -17,14 +17,20 @@ export interface ProductDescriptor {
   categoryId: string;
 }
 
-export interface ProductPreviewDescriptor extends ProductDescriptor {
-  previewImages: PictureDescriptor;
+export interface ProductMainDetailDescriptor extends ProductDescriptor {
+  picture: PictureDescriptor;
 }
 
 export interface ProductsPreviewByCategoryDescriptor {
   name: string;
-  products: ProductPreviewDescriptor[];
+  products: ProductMainDetailDescriptor[];
 }
+
+export type SuggestionProductItemDescriptor = {
+  title: string;
+  picture: PictureDescriptor;
+  slug: string;
+};
 
 export type NavLinkProps = {
   title: string;
@@ -33,10 +39,16 @@ export type NavLinkProps = {
   alt: string;
 };
 
+export type LoaderDefinition = {
+  params: {
+    slug: string;
+  };
+};
+
 export type PrimaryButtonProps = {
   tag: "button" | "link";
   children: ReactNode;
-  href: string;
+  href?: string;
   modifier: "orange" | "white";
 };
 

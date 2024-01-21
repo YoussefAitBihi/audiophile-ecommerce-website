@@ -91,7 +91,7 @@
     align-items: center;
 
     & > picture {
-      width: 70%;
+      width: 85%;
       justify-self: end;
       order: unset;
     }
@@ -110,11 +110,11 @@
 
   display: grid;
   gap: $gap;
-  justify-items: center;
+  // justify-items: center;
   align-content: center; // Center this element based on the grid container
   max-width: 60ch;
-  margin-inline: auto;
-  text-align: center;
+  // margin-inline: auto;
+  // text-align: center;
 
   &--width-50 {
     max-width: 50ch;

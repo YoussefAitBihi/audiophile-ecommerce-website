@@ -1,5 +1,9 @@
+// import { useLoaderData } from "react-router-dom";
+
 const ProductDetailPage = () => {
-  return <h1>Product Detail Page</h1>;
+  // const productDetail = useLoaderData();
+
+  return <article className=""></article>;
 };
 
 export default ProductDetailPage;
