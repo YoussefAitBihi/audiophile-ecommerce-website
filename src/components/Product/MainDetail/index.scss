@@ -1,0 +1,15 @@
+.section-product-main-detail {
+  display: grid;
+  gap: 2rem 5rem;
+
+  &__price {
+    font-size: $fs-400;
+    font-weight: $fw-bold;
+    color: $clr-neutral-900;
+    letter-spacing: $ls-7;
+  }
+
+  @include respond-to("tablet") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

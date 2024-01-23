@@ -14,7 +14,7 @@ html {
 body {
   min-height: 100dvh;
   font: $fw-medium $fs-body $ff-primary;
-  color: $clr-neutral-700;
+  color: $clr-body;
   line-height: 1.67;
   -webkit-font-smoothing: antialiased;
 }
@@ -45,6 +45,7 @@ h6 {
 h1,
 h2,
 h3 {
+  color: $clr-neutral-900;
   line-height: 1;
   word-break: break-word;
 }

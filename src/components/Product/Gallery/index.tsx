@@ -4,7 +4,7 @@ import { FC } from "react";
 
 type ProductGalleryDescriptor = { title: string; gallery: PictureDescriptor[] };
 
-const ProductGallery: FC<ProductGalleryDescriptor> = ({ gallery, title }) => {
+const SectionProductGallery: FC<ProductGalleryDescriptor> = ({ gallery, title }) => {
   return (
     <section className="section-product-gallery" aria-labelledby="">
       <h2 className="visually-hidden">{title} Gallery</h2>
@@ -19,4 +19,4 @@ const ProductGallery: FC<ProductGalleryDescriptor> = ({ gallery, title }) => {
   );
 };
 
-export default ProductGallery;
+export default SectionProductGallery;

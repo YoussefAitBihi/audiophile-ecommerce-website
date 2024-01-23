@@ -25,3 +25,19 @@ export const slugify = (text: string) => {
 
   return slugifiedText;
 };
+
+/**
+ * Allow to format the price
+ *
+ * @param price
+ * @returns
+ */
+export const formatPrice = (price: number) => {
+  const formattedPrice = Intl.NumberFormat(navigator.languages[0], {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+  }).format(price);
+
+  return formattedPrice;
+};

@@ -21,6 +21,7 @@
       place-content: center;
       font-size: $fs-200;
       font-weight: bold;
+      color: $clr-neutral-900;
     }
 
     &:not(&--quantity):where(:hover, :focus-visible) {
