@@ -9,7 +9,9 @@ type AccessoryDescriptor = {
 const SectionProductAccessories: FC<{ accessories: AccessoryDescriptor[] }> = ({ accessories }) => {
   return (
     <section className="section-product-accessories" aria-labelledby="product-accessories">
-      <h2 id="product-accessories">in the box</h2>
+      <h2 className="section-product-accessories__title tertiary-heading" id="product-accessories">
+        in the box
+      </h2>
       <ul role="list" className="section-product-accessories__list">
         {accessories.map((accessory) => (
           <li className="section-product-accessories__accessory" key={accessory.id}>

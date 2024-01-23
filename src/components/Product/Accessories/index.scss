@@ -1,0 +1,28 @@
+.section-product-accessories {
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__accessory {
+    display: flex;
+    gap: 2rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__accessory-quantity {
+    color: $clr-primary-400;
+    font-weight: $fw-bold;
+  }
+
+  @include respond-to("tablet") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to("desktop") {
+    display: block;
+  }
+}

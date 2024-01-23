@@ -52,6 +52,12 @@
   }
 }
 
+.tertiary-heading {
+  font-size: clamp($fs-500, 4vw + 0.1rem, $fs-700);
+  text-transform: uppercase;
+  letter-spacing: clamp($ls-3, 0.16vw, $ls-5);
+}
+
 .border-radius-400 {
   border-radius: $br-400;
 }

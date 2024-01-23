@@ -14,6 +14,7 @@ export interface ProductDescriptor {
   price: number;
   slug: string;
   isNew: boolean;
+  features: string;
   categoryId: string;
 }
 
@@ -26,10 +27,23 @@ export interface ProductsPreviewByCategoryDescriptor {
   products: ProductMainDetailDescriptor[];
 }
 
+export type AccessoryDescriptor = {
+  id: string;
+  title: string;
+  quantity: number;
+};
+
 export type SuggestionProductItemDescriptor = {
   title: string;
   picture: PictureDescriptor;
   slug: string;
+};
+
+export type ProductDetailPageDescriptor = {
+  productMainDetail: ProductMainDetailDescriptor;
+  accessories: AccessoryDescriptor[];
+  suggestionProducts: SuggestionProductItemDescriptor[];
+  gallery: PictureDescriptor[];
 };
 
 export type NavLinkProps = {
