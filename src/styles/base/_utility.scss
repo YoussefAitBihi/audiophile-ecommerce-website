@@ -67,7 +67,7 @@
 }
 
 .fluid-margin-400 {
-  margin-bottom: clamp(5rem, 10dvw, 10rem);
+  margin-bottom: $fluid-margin-400;
 }
 
 .new-product-text {

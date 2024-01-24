@@ -1,0 +1,8 @@
+.suggestion-products {
+  display: grid;
+  gap: 3rem;
+
+  @include respond-to("tablet") {
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  }
+}

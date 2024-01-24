@@ -7,7 +7,7 @@ const SectionProductFeatures = ({ features }: { features: string }) => {
       <h2 className="section-product-features__title tertiary-heading" id="features-title">
         Features
       </h2>
-      <p>{features}</p>
+      <p className="section-product-features__features">{features}</p>
     </section>
   );
 };

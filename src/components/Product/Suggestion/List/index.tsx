@@ -8,9 +8,7 @@ const SuggestionProductsList: FC<{ products: SuggestionProductItemDescriptor[] }
   return (
     <ul className="suggestion-products" role="list">
       {products.map((product, index) => (
-        <li className="suggestion-products__item">
-          <SuggestionProductItem {...product} key={index} />
-        </li>
+        <SuggestionProductItem {...product} key={index} />
       ))}
     </ul>
   );

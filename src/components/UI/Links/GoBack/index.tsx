@@ -4,7 +4,11 @@
  * @returns
  */
 const GoBack = () => {
-  return <button onClick={() => history.back()}>Go back</button>;
+  return (
+    <button className="go-back-button" onClick={() => history.back()}>
+      Go back
+    </button>
+  );
 };
 
 export default GoBack;

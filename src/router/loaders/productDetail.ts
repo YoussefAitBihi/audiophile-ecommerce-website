@@ -33,10 +33,17 @@ const productDetailLoader = async ({ params }: LoaderDefinition) => {
       throw json({ title: "Error", message: otherProductsError.message });
     }
 
-    // const productDetailAndFascinatedProduct = {
-    //   productDetail: { ...productDetail[0] },
-    //   fascinatedProducts: [...otherProducts],
-    // };
+    const transformedSuggestionProducts = [];
+
+    for (const product of otherProducts) {
+      const transformedProduct = {
+        title: product.title,
+        picture: product["product-preview-images"][0],
+        slug: product.slug,
+      };
+
+      transformedSuggestionProducts.push(transformedProduct);
+    }
 
     const productDetailAndFascinatedProducts = {
       productMainDetail: {
@@ -51,7 +58,7 @@ const productDetailLoader = async ({ params }: LoaderDefinition) => {
       },
       accessories: [...productDetail[0].accessory],
       gallery: [...productDetail[0].gallery],
-      suggestionProducts: [...otherProducts],
+      suggestionProducts: transformedSuggestionProducts,
     };
     return productDetailAndFascinatedProducts;
   } catch (error) {

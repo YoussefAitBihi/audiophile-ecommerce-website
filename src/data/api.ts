@@ -30,19 +30,15 @@ export const storeDataToDB = async () => {
 
   // Products
   for (const product of products) {
-    const description = faker.commerce.productDescription();
     const price = Number.parseFloat(faker.commerce.price({ min: 800, max: 1400, dec: 2 }));
     const slug = slugify(product.title);
     const is_new = faker.datatype.boolean();
-    const features = faker.commerce.productDescription();
 
     const updatedProduct = {
       ...product,
-      description,
       price,
       slug,
       is_new,
-      features,
     };
 
     const { error } = await supabase.from("product").insert([updatedProduct]);
@@ -88,3 +84,5 @@ export const storeDataToDB = async () => {
     }
   }
 };
+
+// storeDataToDB();
