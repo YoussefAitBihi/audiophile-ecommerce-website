@@ -57,6 +57,11 @@ $ls-3: 0.86px;
 $ls-2: -0.21px;
 $ls-1: -0.25px;
 
+/* ------------------------ */
+/*          SPACING         */
+/* ------------------------ */
+$fluid-margin-400: clamp(5rem, 10dvw, 10rem);
+
 // Border Radius
 $br-400: 1.2rem;
 $br-300: 0.8rem;
@@ -64,7 +69,8 @@ $br-300: 0.8rem;
 // Breakpoints
 $bp-desktop: 60em;
 // $bp-desktop: 90em;
-$bp-tablet: 48em;
+// $bp-tablet: 48em;
+$bp-tablet: 35em;
 $bp-mobile: 23.4375em;
 
 $available-breakpoints: (

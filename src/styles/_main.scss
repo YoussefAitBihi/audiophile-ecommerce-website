@@ -16,6 +16,7 @@
 @import "../components/UI/Buttons/Secondary/index.scss";
 @import "../components/UI/Buttons/Primary/index.scss";
 @import "../components/UI/SocialMediaLinks/index.scss";
+@import "../components/UI/Links/GoBack/index.scss";
 @import "../components/UI/Skeletons/Product/index.scss";
 @import "../components/UI/SpinnerLoading/index.scss";
 
@@ -28,9 +29,14 @@
 @import "../components/Product/MainDetail/index.scss";
 @import "../components/Product/Features/index.scss";
 @import "../components/Product/Accessories/index.scss";
+@import "../components/Product/Gallery/index.scss";
+@import "../components/Product/Suggestion/Section/index.scss";
+@import "../components/Product/Suggestion/List/index.scss";
+@import "../components/Product/Suggestion/Item/index.scss";
 
 @import "../components/Home/SectionHero/index.scss";
 @import "../components/Home/SectionProducts/index.scss";
 
 @import "../pages/Category/index.scss";
+@import "../pages/ProductDetail/index.scss";
 @import "../pages/ErrorBoundary/index.scss";

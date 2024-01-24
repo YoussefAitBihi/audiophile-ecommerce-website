@@ -1,0 +1,10 @@
+.go-back-button {
+  font-size: $fs-300;
+  font-weight: $fw-medium;
+  color: $clr-neutral-500;
+  text-transform: capitalize;
+
+  &:where(:hover, :focus-visible) {
+    text-decoration: underline;
+  }
+}
