@@ -27,7 +27,7 @@
   left: 0;
   z-index: 9999;
   overflow: auto;
-  backdrop-filter: brightness(0.8);
+  backdrop-filter: brightness(0.5) blur(4px);
 }
 
 .primary-heading {

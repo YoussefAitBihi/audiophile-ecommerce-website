@@ -1,0 +1,29 @@
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  &:not(:last-of-type) {
+    margin-bottom: 2.5rem;
+  }
+
+  &__image {
+    max-width: 7rem;
+
+    & > img {
+      border-radius: 0.7rem;
+    }
+  }
+
+  &__title {
+    font-size: $fs-300;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  &__price {
+    font-size: $fs-200;
+    font-weight: $fw-bold;
+  }
+}
