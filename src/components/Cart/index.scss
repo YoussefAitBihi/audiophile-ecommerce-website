@@ -1,7 +1,32 @@
 .cart {
-  grid-area: cart;
+  position: relative;
+  cursor: pointer;
 
-  @include respond-to("tablet") {
-    margin-left: auto;
+  &:where(:hover, :focus-visible) svg path {
+    fill: $clr-primary-400;
+    transition: fill 0.2s;
+  }
+
+  &:where(:hover, :focus-visible) &__items-count {
+    background-color: $clr-primary-400;
+    color: $clr-neutral-100;
+  }
+
+  &__items-count {
+    position: absolute;
+    top: -0.8rem;
+    right: -0.8rem;
+    width: 2rem;
+    height: 1.5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 1rem;
+
+    background-color: $clr-neutral-100;
+    color: $clr-neutral-900;
+    font-size: $fs-100;
+    font-weight: $fw-bold;
+
+    transition: background 0.2s;
   }
 }
