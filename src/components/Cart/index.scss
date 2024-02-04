@@ -1,13 +1,14 @@
 .cart {
   position: relative;
-  cursor: pointer;
 
-  &:where(:hover, :focus-visible) svg path {
+  &:where(:hover, :focus-visible) svg path,
+  &__button[aria-expanded="true"] svg path {
     fill: $clr-primary-400;
     transition: fill 0.2s;
   }
 
-  &:where(:hover, :focus-visible) &__items-count {
+  &:where(:hover, :focus-visible) &__items-count,
+  &__button[aria-expanded="true"] &__items-count {
     background-color: $clr-primary-400;
     color: $clr-neutral-100;
   }

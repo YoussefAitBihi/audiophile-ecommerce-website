@@ -27,11 +27,11 @@ export interface ProductsPreviewByCategoryDescriptor {
   products: ProductMainDetailDescriptor[];
 }
 
-export type AccessoryDescriptor = {
+export interface AccessoryDescriptor {
   id: string;
   title: string;
   quantity: number;
-};
+}
 
 export type SuggestionProductItemDescriptor = {
   title: string;
@@ -64,6 +64,7 @@ export type PrimaryButtonProps = {
   children: ReactNode;
   href?: string;
   modifier: "orange" | "white";
+  disabled?: boolean;
 };
 
 export type HamburgerButtonProps = {
@@ -73,8 +74,24 @@ export type HamburgerButtonProps = {
 
 export type UIStateDescriptor = {
   mobileNavigationIsShown: boolean;
+  cartModalIsShown: boolean;
 };
 
 export type AppWideStateDescriptor = {
   ui: UIStateDescriptor;
+  cart: CartStateDescriptor;
+};
+
+export type CartItemDescriptor = {
+  id: string;
+  abbreviatedTitle: string;
+  price: number;
+  picture: string;
+  quantity: number;
+};
+
+export type CartStateDescriptor = {
+  items: CartItemDescriptor[];
+  totalQuantity: number;
+  totalAmount: number;
 };

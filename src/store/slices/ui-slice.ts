@@ -3,6 +3,7 @@ import { UIStateDescriptor } from "@/types";
 
 const initialState = {
   mobileNavigationIsShown: false,
+  cartModalIsShown: false,
 };
 
 const uiSlice = createSlice({
@@ -12,8 +13,11 @@ const uiSlice = createSlice({
     toggleMobileNavigation(state: UIStateDescriptor) {
       state.mobileNavigationIsShown = !state.mobileNavigationIsShown;
     },
+    toggleCartModal(state: UIStateDescriptor) {
+      state.cartModalIsShown = !state.cartModalIsShown;
+    },
   },
 });
 
-export const uiReducers = uiSlice.reducer;
+export const uiReducer = uiSlice.reducer;
 export const uiActions = uiSlice.actions;

@@ -68,4 +68,8 @@
     font-weight: $fw-bold;
     color: $clr-neutral-900;
   }
+
+  &__fallback {
+    text-align: center;
+  }
 }

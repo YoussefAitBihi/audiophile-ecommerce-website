@@ -8,6 +8,12 @@
     margin-bottom: 2.5rem;
   }
 
+  &__content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
   &__image {
     max-width: 7rem;
 
