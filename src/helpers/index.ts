@@ -1,5 +1,8 @@
+import { CartStateDescriptor } from "@/types";
+
 /**
  * Allow to change the color of a link when it's active
+ *
  * @param isActive a parameter passes via React Router DOM
  * @returns
  */
@@ -13,7 +16,9 @@ export const handleActiveLink = ({ isActive }: { isActive: boolean }) => {
 
 /**
  * Slugify a text
+ *
  * @param text a string which you want to slugify it
+ *
  * @returns
  */
 export const slugify = (text: string) => {
@@ -40,4 +45,38 @@ export const formatPrice = (price: number) => {
   }).format(price);
 
   return formattedPrice;
+};
+
+/**
+ * Save Cart items to Local Storage
+ * @param cart
+ */
+export const saveCartToLocalStorage = (cart: CartStateDescriptor) => {
+  // if (!cart.items.length) return;
+
+  const serializedCart = JSON.stringify(cart);
+
+  localStorage.setItem("cart", serializedCart);
+};
+
+/**
+ * Load Cart items from Local Storage
+ * @returns
+ */
+export const loadCartFromLocalStorage = (): CartStateDescriptor | undefined => {
+  const cart = localStorage.getItem("cart");
+
+  if (!cart) return;
+
+  const deserializedCart = JSON.parse(cart);
+
+  return deserializedCart;
+};
+
+export const clearCartFromLocalStorage = () => {
+  try {
+    localStorage.removeItem("cart");
+  } catch (error) {
+    console.log(error);
+  }
 };

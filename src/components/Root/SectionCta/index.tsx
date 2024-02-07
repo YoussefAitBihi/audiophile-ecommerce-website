@@ -5,6 +5,12 @@ export default function SectionCta() {
     <section className="section-cta fluid-margin-400" aria-labelledby="section-cta-title">
       <div className="container">
         <div className="product-grid product-grid--picture-first">
+          <Picture
+            desktop="/src/assets/images/shared/desktop/image-best-gear.jpg"
+            tablet="/src/assets/images/shared/tablet/image-best-gear.jpg"
+            mobile="/src/assets/images/shared/mobile/image-best-gear.jpg"
+            alt="Best gear ever"
+          />
           <div className="product-detail-grid">
             <h2 className="secondary-heading" id="section-cta-title">
               Bringing you the <span className="text-primary-400">best</span> audio gear
@@ -17,12 +23,6 @@ export default function SectionCta() {
               Audiophile the best place to buy your portable audio equipment.
             </p>
           </div>
-          <Picture
-            desktop="/src/assets/images/shared/desktop/image-best-gear.jpg"
-            tablet="/src/assets/images/shared/tablet/image-best-gear.jpg"
-            mobile="/src/assets/images/shared/mobile/image-best-gear.jpg"
-            alt="Best gear ever"
-          />
         </div>
       </div>
     </section>

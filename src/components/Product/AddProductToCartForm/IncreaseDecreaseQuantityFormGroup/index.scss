@@ -8,7 +8,7 @@
     padding-inline: 1em;
     line-height: 1;
     height: 100%;
-    transition: all 200ms;
+    transition: all 200ms ease-in;
 
     &--quantity {
       display: grid;

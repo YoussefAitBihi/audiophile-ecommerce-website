@@ -29,4 +29,9 @@
       border: 1px solid $clr-neutral-900;
     }
   }
+
+  &[aria-disabled="true"] {
+    background-color: $clr-accent-100;
+    cursor: not-allowed;
+  }
 }

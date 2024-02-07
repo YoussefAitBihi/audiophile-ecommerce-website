@@ -11,7 +11,7 @@ const MinusIcon = () => {
       <path
         d="M6 12L18 12"
         stroke="#000000"
-        stroke-width="2"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

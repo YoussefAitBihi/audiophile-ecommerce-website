@@ -11,7 +11,7 @@ const PlusIcon = () => {
       <path
         d="M4 12H20M12 4V20"
         stroke="#000000"
-        stroke-width="2"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

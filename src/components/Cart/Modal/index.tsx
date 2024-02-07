@@ -1,32 +1,71 @@
-import CartItem from "../Item";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
+import { clearCartFromLocalStorage, formatPrice } from "@/helpers";
+import { AppWideStateDescriptor } from "@/types";
+import { motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
+import CartItem from "../Item";
+import { cartActions } from "@/store/slices/cart-slice";
+import { createSelector } from "@reduxjs/toolkit";
 
-const CartModal = () => {
+const CartModal = ({ onClick }: { onClick: () => void }) => {
+  const selectCartFn = (state: AppWideStateDescriptor) => state.cart;
+
+  const selectCart = createSelector([selectCartFn], (cart) => {
+    return { cart };
+  });
+
+  const { cart } = useSelector(selectCart);
+  const { items, totalAmount, totalQuantity } = cart;
+
+  const dispatch = useDispatch();
+
+  const formattedTotalAmount = formatPrice(totalAmount);
+
   return (
-    <div className="cart-modal backdrop-400" id="cart-modal">
+    <div className="cart-modal backdrop-400" id="cart-modal" onClick={onClick}>
       <div className="container">
-        <div className="cart-modal__content">
+        <motion.div
+          className="cart-modal__content"
+          variants={{
+            hide: { y: 40, opacity: 0 },
+            show: { y: 0, opacity: 1 },
+          }}
+          initial="hide"
+          animate="show"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="cart-modal__head">
             <h2 className="cart-modal__title">
               cart
-              <span className="visually-hidden">Total of products is: </span>
-              <span>(3)</span>
+              {totalQuantity > 0 && (
+                <>
+                  <span className="visually-hidden">Total of products is: </span>
+                  <span>({totalQuantity})</span>
+                </>
+              )}
             </h2>
-            <button className="cart-modal__remove-all">Remove all</button>
+            <button
+              className="cart-modal__remove-all"
+              onClick={() => {
+                clearCartFromLocalStorage();
+                dispatch(cartActions.clearCart());
+              }}
+            >
+              Remove all
+            </button>
           </div>
           <ul className="cart-modal__items" role="list">
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {!items.length && <p className="cart-modal__fallback">Your cart is empty</p>}
+            {items.length > 0 && items.map((item) => <CartItem key={item.id} {...item} />)}
           </ul>
           <div className="cart-modal__total-amount-wrapper">
             <h4 className="cart-modal__total-amount-title">total</h4>
-            <p className="cart-modal__total-amount">$ 5,396</p>
+            <p className="cart-modal__total-amount">{formattedTotalAmount}</p>
           </div>
-          <PrimaryButton tag="link" href="/checkout" modifier="orange">
+          <PrimaryButton tag="link" href="/checkout" modifier="orange" disabled={!items.length}>
             checkout
           </PrimaryButton>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

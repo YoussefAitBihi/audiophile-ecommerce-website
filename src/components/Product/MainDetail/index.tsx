@@ -25,7 +25,16 @@ const ProductMainDetail: FC<ProductMainDetailDescriptor> = (product) => {
           <span className="visually-hidden">{`The ${product.title} price is:`}</span>
           {price}
         </p>
-        <AddProductToCart />
+        <AddProductToCart
+          cartItem={{
+            id: product.id,
+            title: product.title,
+            abbreviatedTitle: product.title.split(" ").shift()!,
+            price: product.price,
+            picture: product.picture.mobile,
+            quantity: 0,
+          }}
+        />
       </div>
     </section>
   );

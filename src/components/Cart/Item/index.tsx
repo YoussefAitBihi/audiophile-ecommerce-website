@@ -1,16 +1,32 @@
-import FormGroup from "@/components/Product/AddProductToCartForm/FormGroup";
+import IncreaseDecreaseQuantityFormGroup from "@/components/Product/AddProductToCartForm/IncreaseDecreaseQuantityFormGroup";
+import { formatPrice } from "@/helpers";
+import useQuantity from "@/hooks/useQuantity";
+import { CartItemDescriptor } from "@/types";
+import { useMemo } from "react";
 
-const CartItem = () => {
+const CartItem = (cartItem: CartItemDescriptor) => {
+  const { quantity, decreaseQuantity, increaseQuantity } = useQuantity(cartItem.quantity, cartItem);
+
+  const formattedPrice = useMemo(() => {
+    return formatPrice(cartItem.price);
+  }, [cartItem.price]);
+
   return (
     <li className="cart-item">
-      <div className="cart-item__image">
-        <img src="/src/assets/images/cart/image-xx99-mark-one-headphones.jpg" alt="title" />
+      <div className="cart-item__content">
+        <div className="cart-item__image">
+          <img src={cartItem.picture} alt="title" loading="lazy" />
+        </div>
+        <div>
+          <h3 className="cart-item__title">{cartItem.abbreviatedTitle}</h3>
+          <p className="cart-item__price">{formattedPrice}</p>
+        </div>
       </div>
-      <div>
-        <h3 className="cart-item__title">xx99 mk ii</h3>
-        <p className="cart-item__price">$2,999</p>
-      </div>
-      <FormGroup />
+      <IncreaseDecreaseQuantityFormGroup
+        quantity={quantity}
+        onDecreaseQuantity={decreaseQuantity}
+        onIncreaseQuantity={increaseQuantity}
+      />
     </li>
   );
 };
