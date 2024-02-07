@@ -1,19 +1,22 @@
 import PrimaryButton from "@/components/UI/Buttons/Primary";
-import { formatPrice } from "@/helpers";
+import { clearCartFromLocalStorage, formatPrice } from "@/helpers";
 import { AppWideStateDescriptor } from "@/types";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../Item";
 import { cartActions } from "@/store/slices/cart-slice";
+import { createSelector } from "@reduxjs/toolkit";
 
 const CartModal = ({ onClick }: { onClick: () => void }) => {
-  const { items, totalQuantity, totalAmount } = useSelector((state: AppWideStateDescriptor) => {
-    return {
-      items: state.cart.items,
-      totalQuantity: state.cart.totalQuantity,
-      totalAmount: state.cart.totalAmount,
-    };
+  const selectCartFn = (state: AppWideStateDescriptor) => state.cart;
+
+  const selectCart = createSelector([selectCartFn], (cart) => {
+    return { cart };
   });
+
+  const { cart } = useSelector(selectCart);
+  const { items, totalAmount, totalQuantity } = cart;
+
   const dispatch = useDispatch();
 
   const formattedTotalAmount = formatPrice(totalAmount);
@@ -44,6 +47,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
             <button
               className="cart-modal__remove-all"
               onClick={() => {
+                clearCartFromLocalStorage();
                 dispatch(cartActions.clearCart());
               }}
             >

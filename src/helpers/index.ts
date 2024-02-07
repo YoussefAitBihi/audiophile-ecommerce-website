@@ -1,4 +1,4 @@
-import { CartItemDescriptor } from "@/types";
+import { CartStateDescriptor } from "@/types";
 
 /**
  * Allow to change the color of a link when it's active
@@ -48,15 +48,35 @@ export const formatPrice = (price: number) => {
 };
 
 /**
- * Allows to retrieve the index of an existing cart item. Returns -1 if not found.
- * @param items
- * @param itemId
+ * Save Cart items to Local Storage
+ * @param cart
+ */
+export const saveCartToLocalStorage = (cart: CartStateDescriptor) => {
+  // if (!cart.items.length) return;
+
+  const serializedCart = JSON.stringify(cart);
+
+  localStorage.setItem("cart", serializedCart);
+};
+
+/**
+ * Load Cart items from Local Storage
  * @returns
  */
-export const findCartItemIndex = (items: CartItemDescriptor[], itemId: string) => {
-  const existingItemIndex = items.findIndex((item) => {
-    return item.id === itemId;
-  });
+export const loadCartFromLocalStorage = (): CartStateDescriptor | undefined => {
+  const cart = localStorage.getItem("cart");
 
-  return existingItemIndex;
+  if (!cart) return;
+
+  const deserializedCart = JSON.parse(cart);
+
+  return deserializedCart;
+};
+
+export const clearCartFromLocalStorage = () => {
+  try {
+    localStorage.removeItem("cart");
+  } catch (error) {
+    console.log(error);
+  }
 };

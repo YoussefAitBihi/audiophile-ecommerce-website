@@ -28,6 +28,7 @@ const ProductMainDetail: FC<ProductMainDetailDescriptor> = (product) => {
         <AddProductToCart
           cartItem={{
             id: product.id,
+            title: product.title,
             abbreviatedTitle: product.title.split(" ").shift()!,
             price: product.price,
             picture: product.picture.mobile,

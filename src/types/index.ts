@@ -75,6 +75,7 @@ export type HamburgerButtonProps = {
 export type UIStateDescriptor = {
   mobileNavigationIsShown: boolean;
   cartModalIsShown: boolean;
+  notificationIsShown: boolean;
 };
 
 export type AppWideStateDescriptor = {
@@ -84,6 +85,7 @@ export type AppWideStateDescriptor = {
 
 export type CartItemDescriptor = {
   id: string;
+  title: string;
   abbreviatedTitle: string;
   price: number;
   picture: string;

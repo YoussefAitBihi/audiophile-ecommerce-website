@@ -1,0 +1,52 @@
+.notification-ui {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  position: fixed;
+  left: 50%;
+  top: clamp(9rem, 7vw, 9.7rem);
+  translate: -50% 0;
+  z-index: 1;
+
+  width: min(50rem, calc(100% - 2rem));
+  padding: 2rem;
+  background-color: $clr-neutral-100;
+  border: 1px solid $clr-neutral-400;
+  border-radius: $br-300;
+  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.1);
+
+  &__content {
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-size: $fs-400;
+    margin-bottom: 0.7rem;
+  }
+
+  &__icon-left {
+    padding: 1rem;
+    background-color: $clr-accent-100;
+    border-radius: $br-300;
+    line-height: 1;
+
+    & > svg {
+      fill: $clr-neutral-100;
+    }
+  }
+
+  &__icon-right {
+    line-height: 0;
+
+    & > svg path {
+      stroke: $clr-neutral-500;
+    }
+
+    &:where(:hover, :focus-visible) > svg path {
+      stroke: $clr-primary-400;
+    }
+  }
+}
