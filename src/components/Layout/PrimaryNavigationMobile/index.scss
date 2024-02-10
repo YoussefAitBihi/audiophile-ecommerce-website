@@ -1,36 +1,19 @@
 .primary-navigation-mobile {
   --_mobile-navigation-padding: 8rem;
   --_gap: 7rem;
-  display: none;
 
   &__list {
     position: absolute;
     left: 0;
     top: var(--_primary-header-height);
     width: 100%;
-    padding: var(--_mobile-navigation-padding) 0 var(--_mobile-navigation-padding) / 2;
+    padding: var(--_mobile-navigation-padding) 0 2rem;
     background-color: $clr-neutral-100;
     border-bottom-left-radius: $br-400;
     border-bottom-right-radius: $br-400;
-
-    translate: 0 -100%;
-    transition: all 0.01s;
-    opacity: 0;
   }
-}
 
-.hamburger-button[aria-expanded="true"] ~ .primary-navigation-mobile {
   @include respond-to("desktop") {
     display: none;
   }
-
-  display: block;
-}
-
-.hamburger-button[aria-expanded="true"]
-  ~ .primary-navigation-mobile
-  > .primary-navigation-mobile__list {
-  opacity: 1;
-  translate: 0;
-  transition: all 0.2s ease-in;
 }

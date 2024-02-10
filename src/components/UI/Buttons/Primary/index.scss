@@ -14,8 +14,15 @@
     background-color: $clr-primary-400;
     color: $clr-neutral-100;
 
-    &:is(:hover, :focus-visible) {
+    &:where(:hover, :focus-visible) {
       background-color: $clr-accent-100;
+      translate: 0 -0.2rem;
+      box-shadow: $box-shadow-400;
+    }
+
+    &:where(:active) {
+      translate: 0;
+      box-shadow: unset;
     }
   }
 
@@ -23,7 +30,7 @@
     color: $clr-neutral-900;
     border: 1px solid currentColor;
 
-    &:is(:hover, :focus-visible) {
+    &:where(:hover, :focus-visible) {
       background-color: $clr-neutral-900;
       color: $clr-neutral-100;
       border: 1px solid $clr-neutral-900;

@@ -11,13 +11,15 @@ type NotificationProps = {
 };
 
 /**
- * Allows to show a notification
+ * Render a notification
+ *
  * @returns
  */
 const NotificationUI: FC<NotificationProps> = ({ title, action, onClick }) => {
   const notificationUIContent = (
     <motion.div
       className="notification-ui"
+      onClick={(event) => event.stopPropagation()}
       variants={{
         show: { opacity: 1, y: 0 },
         hide: { opacity: 0, y: -20 },

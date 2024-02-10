@@ -43,7 +43,7 @@ const Cart = () => {
         <span className="visually-hidden">{cartButtonAriaLabel}</span>
         <CartIcon />
         {cart.totalQuantity > 0 && (
-          <div className="cart__items-count">
+          <div className="cart__total-quantity">
             <span className="visually-hidden">Cart total is: </span>
             <span>{cart.totalQuantity}</span>
           </div>
@@ -55,14 +55,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-// DONE: Show & Hide the cart.
-// DONE: Increase and decrease the quantity.
-// DONE: When the form is submitted, the product will be added to the cart.
-// DONE: The quantity will reset to 1.
-// DONE: In the cart, the user can add or remove a product.
-// DONE: The total will be calculated when the cart is updated.
-// DONE: The cart state will be saved to local storage.
-
-// TODO: Notify the user when the product was added to cart.
-// TODO: Notify the user when the product was removed from cart.
