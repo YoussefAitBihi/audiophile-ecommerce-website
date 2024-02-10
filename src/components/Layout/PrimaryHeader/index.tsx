@@ -7,6 +7,7 @@ import Logo from "@/components/UI/Links/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "@/store/slices/ui-slice";
 import { AppWideStateDescriptor } from "@/types";
+import { AnimatePresence } from "framer-motion";
 
 const PrimaryHeader = () => {
   const { pathname } = useLocation();
@@ -29,7 +30,9 @@ const PrimaryHeader = () => {
             mobileNavigationIsShown={mobileNavigationIsShown}
             onClick={handleToggleNavigation}
           />
-          <PrimaryNavigationMobile />
+          <AnimatePresence>
+            {mobileNavigationIsShown && <PrimaryNavigationMobile />}
+          </AnimatePresence>
           <PrimaryNavigation modifierClass="primary-navigation--header" />
           <Cart />
         </div>

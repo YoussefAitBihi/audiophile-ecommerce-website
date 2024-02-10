@@ -83,28 +83,24 @@
   }
 }
 
-.product-grid {
+.even-columns {
   display: grid;
   gap: 4rem;
 
-  & > picture {
-    order: -1;
-  }
-
   @include respond-to("desktop") {
     grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
     align-items: center;
 
     & > picture {
       width: 85%;
-      justify-self: end;
-      order: unset;
     }
 
-    &--picture-first {
+    &--content-first {
       & > picture {
-        justify-self: start;
+        justify-self: end;
+      }
+
+      & > div {
         order: -1;
       }
     }
@@ -117,14 +113,13 @@
   display: grid;
   gap: $gap;
   align-content: center;
-  // justify-items: center;
-  // text-align: center;
 
-  & > * {
-    max-width: 60ch;
+  &--centered {
+    justify-items: center;
+    text-align: center;
   }
 
-  // Here section
+  // Hero section
   &--width-50 {
     & > * {
       max-width: 50ch;

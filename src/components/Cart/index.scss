@@ -7,13 +7,7 @@
     transition: fill 0.2s;
   }
 
-  &:where(:hover, :focus-visible) &__items-count,
-  &__button[aria-expanded="true"] &__items-count {
-    background-color: $clr-primary-400;
-    color: $clr-neutral-100;
-  }
-
-  &__items-count {
+  &__total-quantity {
     position: absolute;
     top: -0.8rem;
     right: -0.8rem;
@@ -23,11 +17,9 @@
     place-content: center;
     border-radius: 1rem;
 
-    background-color: $clr-neutral-100;
-    color: $clr-neutral-900;
+    background-color: $clr-primary-400;
+    color: $clr-neutral-100;
     font-size: $fs-100;
     font-weight: $fw-bold;
-
-    transition: background 0.2s;
   }
 }

@@ -2,6 +2,7 @@ import NavLink from "@/components/Layout/NavLink";
 import { navLinks } from "@/data";
 import { uiActions } from "@/store/slices/ui-slice";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 
 const PrimaryNavigationMobile = () => {
   const dispatch = useDispatch();
@@ -11,10 +12,18 @@ const PrimaryNavigationMobile = () => {
   };
 
   return (
-    <nav
+    <motion.nav
       className="primary-navigation-mobile backdrop-400"
       aria-label="Primary Mobile"
       onClick={hideNavigationHandler}
+      variants={{
+        show: { opacity: 1, y: 0 },
+        hide: { opacity: 0, y: -20 },
+      }}
+      initial="hide"
+      animate="show"
+      transition={{ duration: 0.2 }}
+      exit="hide"
     >
       <ul
         className="primary-navigation-mobile__list"
@@ -32,7 +41,7 @@ const PrimaryNavigationMobile = () => {
           </div>
         </div>
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
