@@ -1,6 +1,6 @@
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 import IncreaseDecreaseQuantityFormGroup from "./IncreaseDecreaseQuantityFormGroup";
-import { FC, FormEvent } from "react";
+import { FC, FormEvent, useEffect } from "react";
 import { CartItemDescriptor } from "@/types";
 import { cartActions } from "@/store/slices/cart-slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,12 @@ import NotificationUI from "@/components/UI/Notification";
 import { selectNotificationState, uiActions } from "@/store/slices/ui-slice";
 import { AnimatePresence } from "framer-motion";
 
+/**
+ * Render a form that allow to the user to add a product to their cart.
+ *
+ * @param param0
+ * @returns
+ */
 const AddProductToCart: FC<{ cartItem: CartItemDescriptor }> = ({ cartItem }) => {
   const dispatch = useDispatch();
 
@@ -28,6 +34,13 @@ const AddProductToCart: FC<{ cartItem: CartItemDescriptor }> = ({ cartItem }) =>
 
     dispatch(uiActions.showNotification());
   }
+
+  // Hide the notification when a user clicks anywhere
+  useEffect(() => {
+    document.body.addEventListener("click", () => {
+      dispatch(uiActions.hideNotification());
+    });
+  }, [dispatch]);
 
   return (
     <>

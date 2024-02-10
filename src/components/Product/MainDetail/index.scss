@@ -12,4 +12,10 @@
   @include respond-to("tablet") {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @include respond-to("desktop") {
+    & > picture {
+      width: 85%;
+    }
+  }
 }

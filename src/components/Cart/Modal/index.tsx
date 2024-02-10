@@ -32,6 +32,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
           }}
           initial="hide"
           animate="show"
+          exit="hide"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="cart-modal__head">

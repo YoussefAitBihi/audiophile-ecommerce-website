@@ -4,14 +4,14 @@ export default function SectionCta() {
   return (
     <section className="section-cta fluid-margin-400" aria-labelledby="section-cta-title">
       <div className="container">
-        <div className="product-grid product-grid--picture-first">
+        <div className="even-columns even-columns--content-first">
           <Picture
             desktop="/src/assets/images/shared/desktop/image-best-gear.jpg"
             tablet="/src/assets/images/shared/tablet/image-best-gear.jpg"
             mobile="/src/assets/images/shared/mobile/image-best-gear.jpg"
             alt="Best gear ever"
           />
-          <div className="product-detail-grid">
+          <div className="product-detail-grid product-detail-grid--centered">
             <h2 className="secondary-heading" id="section-cta-title">
               Bringing you the <span className="text-primary-400">best</span> audio gear
             </h2>

@@ -9,11 +9,12 @@ const ProductPreview: FC<{ product: ProductMainDetailDescriptor; index: number }
 }) => {
   return (
     <article
-      className={`product-item | product-grid ${
-        index % 2 === 0 ? "product-grid--picture-first" : ""
+      className={`product-item | even-columns ${
+        index % 2 === 1 ? "even-columns--content-first" : ""
       }`}
     >
-      <div className="product-detail-grid">
+      <Picture {...product.picture} alt={product.title} />
+      <div className="product-detail-grid product-detail-grid--centered">
         <div>
           {product.isNew && <p className="new-product-text">new product</p>}
           <h2 className="secondary-heading">{product.title}</h2>
@@ -23,7 +24,6 @@ const ProductPreview: FC<{ product: ProductMainDetailDescriptor; index: number }
           see product
         </PrimaryButton>
       </div>
-      <Picture {...product.picture} alt={product.title} />
     </article>
   );
 };

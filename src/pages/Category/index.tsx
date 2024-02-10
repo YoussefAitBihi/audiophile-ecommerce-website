@@ -15,7 +15,7 @@ const CategoryPage = () => {
   return (
     <>
       <header className="category-header fluid-margin-400">
-        <h1 className="secondary-heading">{category.name}</h1>
+        <h1 className="secondary-heading secondary-heading--category">{category.name}</h1>
       </header>
       <section
         className="section-products-preview fluid-margin-400"
