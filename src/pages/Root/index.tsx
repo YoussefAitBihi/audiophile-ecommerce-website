@@ -10,11 +10,15 @@ const RootLayout = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+<<<<<<< HEAD
     scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
+=======
+    scrollTo(0, 0);
+>>>>>>> e4c19773c553d3a06dfd7ff09bba5af6e70c058c
   }, [pathname]);
 
   return (
