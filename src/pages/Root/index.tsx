@@ -10,15 +10,11 @@ const RootLayout = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-<<<<<<<<< Temporary merge branch 1
-    scrollTo(0, 0);
-=========
     scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
->>>>>>>>> Temporary merge branch 2
   }, [pathname]);
 
   return (

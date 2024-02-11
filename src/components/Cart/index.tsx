@@ -6,8 +6,11 @@ import { AppWideStateDescriptor } from "@/types";
 import { createSelector } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import { saveCartToLocalStorage } from "@/helpers";
+import { useAnimate } from "framer-motion";
 
 const Cart = () => {
+  const [scope, animate] = useAnimate();
+
   const dispatch = useDispatch();
 
   const selectCartFn = (state: AppWideStateDescriptor) => state.cart;
@@ -32,8 +35,22 @@ const Cart = () => {
     saveCartToLocalStorage(cart);
   }, [cart]);
 
+  useEffect(() => {
+    if (!cart.totalQuantity) return;
+
+    animate(
+      ".cart__total-quantity",
+      {
+        scale: [1.2, 0.8, 1.2, 1],
+      },
+      {
+        duration: 0.4,
+      }
+    );
+  }, [animate, cart.totalQuantity]);
+
   return (
-    <div className="cart">
+    <div className="cart" ref={scope}>
       <button
         className="cart__button"
         aria-expanded={cartModalIsShown}
@@ -44,7 +61,7 @@ const Cart = () => {
         <CartIcon />
         {cart.totalQuantity > 0 && (
           <div className="cart__total-quantity">
-            <span className="visually-hidden">Cart total is: </span>
+            <span className="visually-hidden">Total quantity is</span>
             <span>{cart.totalQuantity}</span>
           </div>
         )}
@@ -55,3 +72,12 @@ const Cart = () => {
 };
 
 export default Cart;
+
+// Animate:
+
+// TODO: Total Quantity
+// TODO: Cart Item
+// TODO: Cart Item Quantity
+// TODO: Show Each section when scrolling
+
+// TODO: Create a gallery carousel

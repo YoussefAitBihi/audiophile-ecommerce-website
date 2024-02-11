@@ -35,12 +35,23 @@ const AddProductToCart: FC<{ cartItem: CartItemDescriptor }> = ({ cartItem }) =>
     dispatch(uiActions.showNotification());
   }
 
-  // Hide the notification when a user clicks anywhere
+  // Hide the notification when a user clicks anywhere except when user clicks on the notification itself.
   useEffect(() => {
     document.body.addEventListener("click", () => {
       dispatch(uiActions.hideNotification());
     });
   }, [dispatch]);
+
+  // Hide Automatically the notification
+  useEffect(() => {
+    const timeoutID = setTimeout(() => {
+      dispatch(uiActions.hideNotification());
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeoutID);
+    };
+  });
 
   return (
     <>

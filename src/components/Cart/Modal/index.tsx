@@ -1,7 +1,7 @@
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 import { clearCartFromLocalStorage, formatPrice } from "@/helpers";
 import { AppWideStateDescriptor } from "@/types";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../Item";
 import { cartActions } from "@/store/slices/cart-slice";
@@ -33,7 +33,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
           initial="hide"
           animate="show"
           exit="hide"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(event) => event.stopPropagation()}
         >
           <div className="cart-modal__head">
             <h2 className="cart-modal__title">
@@ -55,13 +55,40 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
               Remove all
             </button>
           </div>
-          <ul className="cart-modal__items" role="list">
-            {!items.length && <p className="cart-modal__fallback">Your cart is empty</p>}
-            {items.length > 0 && items.map((item) => <CartItem key={item.id} {...item} />)}
-          </ul>
+          <div className="cart-modal__body">
+            <AnimatePresence mode="wait">
+              {items.length > 0 && (
+                <motion.ul
+                  className="cart-modal__items"
+                  role="list"
+                  key="cart-list"
+                  exit={{ opacity: 0, x: -20 }}
+                >
+                  <AnimatePresence>
+                    {items.map((item) => (
+                      <CartItem key={item.id} {...item} />
+                    ))}
+                  </AnimatePresence>
+                </motion.ul>
+              )}
+              {!items.length && (
+                <motion.p
+                  className="cart-modal__fallback"
+                  key="cart-fallback"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  Your cart is empty
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
           <div className="cart-modal__total-amount-wrapper">
             <h4 className="cart-modal__total-amount-title">total</h4>
-            <p className="cart-modal__total-amount">{formattedTotalAmount}</p>
+            <p className="cart-modal__total-amount">
+              <span className="visually-hidden">The total amount is</span>
+              {formattedTotalAmount}
+            </p>
           </div>
           <PrimaryButton tag="link" href="/checkout" modifier="orange" disabled={!items.length}>
             checkout
@@ -73,3 +100,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
 };
 
 export default CartModal;
+
+// Layout: Animate the element position when its layout changes
+// mode
+// key
