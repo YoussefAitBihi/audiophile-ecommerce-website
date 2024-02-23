@@ -25,6 +25,7 @@
 
   &__logo {
     grid-area: logo;
+    line-height: 0;
   }
 
   @include respond-to("tablet") {

@@ -27,6 +27,11 @@ export interface ProductsPreviewByCategoryDescriptor {
   products: ProductMainDetailDescriptor[];
 }
 
+export interface ProductGalleryCartPreviewProps {
+  gallery: PictureDescriptor[];
+  productItem: ProductMainDetailDescriptor;
+}
+
 export interface AccessoryDescriptor {
   id: string;
   title: string;

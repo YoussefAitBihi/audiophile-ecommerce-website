@@ -6,6 +6,14 @@ import { formatPrice } from "@/helpers";
 
 const ProductMainDetail: FC<ProductMainDetailDescriptor> = (product) => {
   const price = formatPrice(product.price);
+  const cartItem = {
+    id: product.id,
+    title: product.title,
+    abbreviatedTitle: product.title.split(" ").shift()!,
+    price: product.price,
+    picture: product.picture.mobile,
+    quantity: 0,
+  };
 
   return (
     <section
@@ -25,16 +33,7 @@ const ProductMainDetail: FC<ProductMainDetailDescriptor> = (product) => {
           <span className="visually-hidden">{`The ${product.title} price is:`}</span>
           {price}
         </p>
-        <AddProductToCart
-          cartItem={{
-            id: product.id,
-            title: product.title,
-            abbreviatedTitle: product.title.split(" ").shift()!,
-            price: product.price,
-            picture: product.picture.mobile,
-            quantity: 0,
-          }}
-        />
+        <AddProductToCart cartItem={cartItem} />
       </div>
     </section>
   );

@@ -16,19 +16,19 @@ const PrimaryNavigationMobile = () => {
       className="primary-navigation-mobile backdrop-400"
       aria-label="Primary Mobile"
       onClick={hideNavigationHandler}
-      variants={{
-        show: { opacity: 1, y: 0 },
-        hide: { opacity: 0, y: -20 },
-      }}
-      initial="hide"
-      animate="show"
-      transition={{ duration: 0.2 }}
-      exit="hide"
     >
-      <ul
+      <motion.ul
         className="primary-navigation-mobile__list"
         id="primary-navigation-mobile"
         role="list"
+        variants={{
+          show: { opacity: 1, y: 0 },
+          hide: { opacity: 0, y: -20 },
+        }}
+        initial="hide"
+        animate="show"
+        transition={{ duration: 0.2 }}
+        exit="hide"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="container">
@@ -40,7 +40,7 @@ const PrimaryNavigationMobile = () => {
             ))}
           </div>
         </div>
-      </ul>
+      </motion.ul>
     </motion.nav>
   );
 };

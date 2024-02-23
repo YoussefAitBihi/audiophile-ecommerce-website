@@ -62,7 +62,7 @@ const Cart = () => {
         {cart.totalQuantity > 0 && (
           <div className="cart__total-quantity">
             <span className="visually-hidden">Total quantity is</span>
-            <span>{cart.totalQuantity}</span>
+            <span>{cart.totalQuantity > 9 ? `9+` : cart.totalQuantity}</span>
           </div>
         )}
       </button>

@@ -11,7 +11,6 @@ import { AnimatePresence } from "framer-motion";
 
 const PrimaryHeader = () => {
   const { pathname } = useLocation();
-  const pattern = /\/category\/[a-z]+/;
 
   const { mobileNavigationIsShown } = useSelector((state: AppWideStateDescriptor) => state.ui);
 
@@ -22,7 +21,7 @@ const PrimaryHeader = () => {
   };
 
   return (
-    <header className={`primary-header ${pattern.test(pathname) ? "primary-header--black" : ""}`}>
+    <header className={`primary-header ${pathname !== "/" ? "primary-header--black" : ""}`}>
       <div className="container">
         <div className="primary-header__nav-wrapper">
           <Logo className="primary-header__logo" />

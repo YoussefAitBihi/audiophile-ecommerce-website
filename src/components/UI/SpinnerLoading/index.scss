@@ -1,7 +1,7 @@
 .spinner {
   animation: rotate 2s linear infinite;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   translate: -50% -50%;

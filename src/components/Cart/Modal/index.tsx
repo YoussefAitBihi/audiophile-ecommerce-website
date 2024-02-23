@@ -1,19 +1,11 @@
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 import { clearCartFromLocalStorage, formatPrice } from "@/helpers";
-import { AppWideStateDescriptor } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../Item";
-import { cartActions } from "@/store/slices/cart-slice";
-import { createSelector } from "@reduxjs/toolkit";
+import { cartActions, selectCart } from "@/store/slices/cart-slice";
 
 const CartModal = ({ onClick }: { onClick: () => void }) => {
-  const selectCartFn = (state: AppWideStateDescriptor) => state.cart;
-
-  const selectCart = createSelector([selectCartFn], (cart) => {
-    return { cart };
-  });
-
   const { cart } = useSelector(selectCart);
   const { items, totalAmount, totalQuantity } = cart;
 
@@ -41,7 +33,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
               {totalQuantity > 0 && (
                 <>
                   <span className="visually-hidden">Total of products is: </span>
-                  <span>({totalQuantity})</span>
+                  <span>&nbsp;({totalQuantity})</span>
                 </>
               )}
             </h2>
@@ -66,7 +58,7 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
                 >
                   <AnimatePresence>
                     {items.map((item) => (
-                      <CartItem key={item.id} {...item} />
+                      <CartItem key={item.id} cartItem={{ ...item }} config="control-quantity" />
                     ))}
                   </AnimatePresence>
                 </motion.ul>
@@ -100,7 +92,3 @@ const CartModal = ({ onClick }: { onClick: () => void }) => {
 };
 
 export default CartModal;
-
-// Layout: Animate the element position when its layout changes
-// mode
-// key

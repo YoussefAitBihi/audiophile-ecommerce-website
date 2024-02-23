@@ -4,6 +4,10 @@
   align-items: center;
   gap: 1rem;
 
+  &--show-quantity {
+    align-items: start;
+  }
+
   &:not(:last-of-type) {
     margin-bottom: 2.5rem;
   }
@@ -30,6 +34,10 @@
 
   &__price {
     font-size: $fs-200;
+    font-weight: $fw-bold;
+  }
+
+  &__quantity-value {
     font-weight: $fw-bold;
   }
 }

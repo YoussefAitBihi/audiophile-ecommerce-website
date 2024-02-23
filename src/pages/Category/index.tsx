@@ -1,4 +1,4 @@
-import ProductList from "@/components/Product/List";
+import ProductList from "@/components/Product/Preview/List";
 import CategorySkeleton from "@/components/UI/Skeletons/Category";
 import { ProductsPreviewByCategoryDescriptor } from "@/types";
 import { useLoaderData, useNavigation } from "react-router-dom";

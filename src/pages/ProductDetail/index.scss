@@ -1,10 +1,6 @@
 .article-product-detail {
   margin-bottom: $fluid-margin-400;
 
-  & .go-back-button {
-    margin-block: calc($fluid-margin-400 / 2);
-  }
-
   @include respond-to("desktop") {
     &__features-accessories-wrapper {
       display: grid;

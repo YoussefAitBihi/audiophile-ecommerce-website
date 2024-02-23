@@ -9,7 +9,7 @@ const SectionProductsSuggestion = ({
   return (
     <section className="section-products-suggestion" aria-labelledby="products-suggestion-title">
       <h2
-        className="section-products-suggestion__title tertiary-heading"
+        className="section-products-suggestion__title | tertiary-heading"
         id="products-suggestion-title"
       >
         you may also like

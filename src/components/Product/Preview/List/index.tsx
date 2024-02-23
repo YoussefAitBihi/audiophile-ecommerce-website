@@ -1,6 +1,6 @@
 import { ProductMainDetailDescriptor } from "@/types";
 import { FC } from "react";
-import ProductPreview from "../Preview";
+import ProductPreview from "../Item";
 
 const ProductsList: FC<{ products: ProductMainDetailDescriptor[] }> = ({ products }) => {
   const lastProduct = products.slice(-1).pop();

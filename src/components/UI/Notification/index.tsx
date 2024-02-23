@@ -36,8 +36,8 @@ const NotificationUI: FC<NotificationProps> = ({ title, action, onClick }) => {
         <div className="notification-ui__infos">
           <h3 className="notification-ui__title">Success!</h3>
           <p>
-            <strong>{title}</strong> have been successfully{" "}
-            {action === "add" ? "added to" : "removed from"} your cart.
+            <strong>{title}</strong> have been successfully
+            {action === "add" ? " added to" : " removed from"} your cart.
           </p>
         </div>
       </div>

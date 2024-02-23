@@ -1,0 +1,11 @@
+.product-preview-modal {
+  &__content {
+    width: min(55.8rem, 100% - 2rem);
+    margin-inline: auto;
+  }
+
+  &__detail {
+    padding: 2rem;
+    background-color: $clr-neutral-100;
+  }
+}

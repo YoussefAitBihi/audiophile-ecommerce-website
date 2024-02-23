@@ -2,10 +2,15 @@ import IncreaseDecreaseQuantityFormGroup from "@/components/Product/AddProductTo
 import { formatPrice } from "@/helpers";
 import useQuantity from "@/hooks/useQuantity";
 import { CartItemDescriptor } from "@/types";
-import { useMemo } from "react";
+import { FC, useMemo } from "react";
 import { motion } from "framer-motion";
 
-const CartItem = (cartItem: CartItemDescriptor) => {
+type CartItemProps = {
+  cartItem: CartItemDescriptor;
+  config: "control-quantity" | "show-quantity";
+};
+
+const CartItem: FC<CartItemProps> = ({ cartItem, config }) => {
   const { quantity, decreaseQuantity, increaseQuantity } = useQuantity(cartItem.quantity, cartItem);
 
   const formattedPrice = useMemo(() => {
@@ -13,7 +18,11 @@ const CartItem = (cartItem: CartItemDescriptor) => {
   }, [cartItem.price]);
 
   return (
-    <motion.li className="cart-item" layout exit={{ opacity: 0, x: -20 }}>
+    <motion.li
+      className={`cart-item ${config === "show-quantity" ? "cart-item--show-quantity" : ""}`}
+      layout
+      exit={{ opacity: 0, x: -20 }}
+    >
       <div className="cart-item__content">
         <div className="cart-item__image">
           <img src={cartItem.picture} alt={cartItem.title} loading="lazy" />
@@ -28,11 +37,19 @@ const CartItem = (cartItem: CartItemDescriptor) => {
           </p>
         </div>
       </div>
-      <IncreaseDecreaseQuantityFormGroup
-        quantity={quantity}
-        onDecreaseQuantity={decreaseQuantity}
-        onIncreaseQuantity={increaseQuantity}
-      />
+      {config === "control-quantity" && (
+        <IncreaseDecreaseQuantityFormGroup
+          quantity={quantity}
+          onDecreaseQuantity={decreaseQuantity}
+          onIncreaseQuantity={increaseQuantity}
+        />
+      )}
+      {config === "show-quantity" && (
+        <p className="cart-item__quantity-value">
+          <span className="visually-hidden">The {cartItem.title} quantity is</span>x
+          {cartItem.quantity}
+        </p>
+      )}
     </motion.li>
   );
 };
