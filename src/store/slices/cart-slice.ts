@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { CartItemDescriptor, CartStateDescriptor } from "@/types";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { AppWideStateDescriptor, CartItemDescriptor, CartStateDescriptor } from "@/types";
 import { loadCartFromLocalStorage } from "@/helpers";
 
 const initialCartState = {
@@ -66,6 +66,12 @@ const cart = createSlice({
       return initialCartState;
     },
   },
+});
+
+const selectCartFn = (state: AppWideStateDescriptor) => state.cart;
+
+export const selectCart = createSelector([selectCartFn], (cart) => {
+  return { cart };
 });
 
 /**

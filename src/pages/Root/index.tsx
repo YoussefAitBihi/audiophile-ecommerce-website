@@ -20,10 +20,14 @@ const RootLayout = () => {
   return (
     <>
       <PrimaryHeader />
-      <main className={`main-content ${pathname === "/" ? "main-content--homepage" : ""}`}>
+      <main
+        className={`main-content ${pathname === "/" ? "main-content--homepage" : ""} ${
+          pathname === "/checkout" ? "bg-neutral-200" : ""
+        }`}
+      >
         <Outlet />
-        <SectionCategory />
-        <SectionCta />
+        {pathname !== "/checkout" && <SectionCategory />}
+        {pathname !== "/checkout" && <SectionCta />}
       </main>
       <PrimaryFooter />
     </>

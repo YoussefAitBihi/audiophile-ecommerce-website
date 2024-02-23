@@ -3,6 +3,7 @@
   font-weight: $fw-medium;
   color: $clr-neutral-500;
   text-transform: capitalize;
+  margin-block: calc($fluid-margin-400 / 2);
 
   &:where(:hover, :focus-visible) {
     text-decoration: underline;

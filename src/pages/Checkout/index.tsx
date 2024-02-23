@@ -1,5 +1,13 @@
+import CheckoutForm from "@/components/Checkout/Form";
+import GoBack from "@/components/UI/Links/GoBack";
+
 const CheckoutPage = () => {
-  return <h1>Checkout Page</h1>;
+  return (
+    <div className="container">
+      <GoBack />
+      <CheckoutForm />
+    </div>
+  );
 };
 
 export default CheckoutPage;

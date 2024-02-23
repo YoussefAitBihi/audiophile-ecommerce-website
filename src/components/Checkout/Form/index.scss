@@ -1,0 +1,43 @@
+.checkout-form {
+  --_checkout-form-gap: 3rem;
+  --_checkout-form-padding: clamp(3rem, 7dvw - 0.5rem, 6rem) clamp(2rem, 4dvw + 0.2rem, 4rem);
+
+  margin-bottom: $fluid-margin-400;
+
+  @include respond-to("desktop") {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    column-gap: var(--_checkout-form-gap);
+  }
+
+  & > div {
+    border-radius: $br-300;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.05);
+
+    &:first-child {
+      margin-bottom: var(--_checkout-form-gap);
+    }
+  }
+
+  &__form-fields {
+    background-color: $clr-neutral-100;
+    padding: var(--_checkout-form-padding);
+  }
+
+  &__even-columns {
+    &:not(:last-of-type) {
+      margin-bottom: 2.5rem;
+    }
+
+    @include respond-to("tablet") {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+
+      & > div {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

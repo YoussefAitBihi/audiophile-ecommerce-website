@@ -1,5 +1,6 @@
 .hamburger-button {
   grid-area: hamburger;
+  line-height: 0;
 
   @include respond-to("desktop") {
     display: none;

@@ -1,0 +1,22 @@
+.form-section {
+  border: none;
+
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+
+  &__title {
+    font-size: $fs-100;
+    font-weight: $fw-bold;
+    letter-spacing: $ls-4;
+    text-transform: uppercase;
+    color: $clr-primary-400;
+    margin-bottom: 2rem;
+  }
+}
+
+.form-section > .form-field:last-child {
+  @include respond-to("tablet") {
+    width: calc(50% - 1rem);
+  }
+}
