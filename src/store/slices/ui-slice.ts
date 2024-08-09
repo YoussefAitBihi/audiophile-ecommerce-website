@@ -6,12 +6,16 @@ const initialState = {
   mobileNavigationIsShown: false,
   cartModalIsShown: false,
   notificationIsShown: false,
+  checkoutOrderModalIsShown: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
+    init() {
+      return initialState;
+    },
     toggleMobileNavigation(state: UIStateDescriptor) {
       state.mobileNavigationIsShown = !state.mobileNavigationIsShown;
     },
@@ -24,15 +28,33 @@ const uiSlice = createSlice({
     hideNotification(state: UIStateDescriptor) {
       state.notificationIsShown = false;
     },
+    showCheckoutOrderModal(state: UIStateDescriptor) {
+      state.checkoutOrderModalIsShown = true;
+    },
+    hideCheckoutOrderModal(state: UIStateDescriptor) {
+      state.checkoutOrderModalIsShown = false;
+    },
   },
 });
 
 const selectNotificationStateFn = (state: AppWideStateDescriptor) => state.ui.notificationIsShown;
 
+const selectOrderModalStateFn = (state: AppWideStateDescriptor) =>
+  state.ui.checkoutOrderModalIsShown;
+
 export const selectNotificationState = createSelector(
   [selectNotificationStateFn],
   (notificationIsShown) => {
     return { notificationIsShown };
+  }
+);
+
+export const selectOrderModalState = createSelector(
+  [selectOrderModalStateFn],
+  (orderModalIsShown) => {
+    return {
+      orderModalIsShown,
+    };
   }
 );
 

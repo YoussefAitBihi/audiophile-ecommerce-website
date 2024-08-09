@@ -4,6 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import CartItem from "../Item";
 import { cartActions, selectCart } from "@/store/slices/cart-slice";
+import { CartStateDescriptor } from "@/types";
+
+type CartModal = {
+  cart: CartStateDescriptor;
+  onClick: () => void;
+};
 
 const CartModal = ({ onClick }: { onClick: () => void }) => {
   const { cart } = useSelector(selectCart);

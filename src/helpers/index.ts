@@ -1,4 +1,4 @@
-import { CartStateDescriptor } from "@/types";
+import { CartStateDescriptor, InputType } from "@/types";
 
 /**
  * Allow to change the color of a link when it's active
@@ -79,4 +79,34 @@ export const clearCartFromLocalStorage = () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const checkValidityInput = (inputType: InputType, inputValue: string) => {
+  const trimmedInputValue = inputValue.trim();
+
+  // CASE 1: When the input is empty
+  if (!trimmedInputValue.length) {
+    return "Please fulfilled the field";
+  }
+
+  if (inputType === "email" && !trimmedInputValue.includes("@")) {
+    return "Please enter a valid email";
+  }
+
+  return null;
+};
+
+/**
+ * Format TotalAmount, Shipping, vat and Grand Total
+ *
+ * @param totalAmount Order Total amount
+ * @returns
+ */
+export const calcGrandTotal = (totalAmount: number) => {
+  const formattedTotalAmount = formatPrice(totalAmount);
+  const formattedShipping = formatPrice(import.meta.env.VITE_ORDER_SHIPPING);
+  const formattedVAT = formatPrice(totalAmount * import.meta.env.VITE_ORDER_TAX);
+  const formattedGrandTotal = formatPrice(totalAmount + +import.meta.env.VITE_ORDER_SHIPPING);
+
+  return { formattedTotalAmount, formattedShipping, formattedVAT, formattedGrandTotal };
 };

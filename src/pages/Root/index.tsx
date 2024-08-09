@@ -5,9 +5,12 @@ import PrimaryHeader from "@/components/Layout/PrimaryHeader";
 import SectionCategory from "@/components/Root/SectionCategory";
 import SectionCta from "@/components/Root/SectionCta";
 import { Outlet, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { uiActions } from "@/store/slices/ui-slice";
 
 const RootLayout = () => {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     scrollTo({
@@ -15,7 +18,9 @@ const RootLayout = () => {
       left: 0,
       behavior: "smooth",
     });
-  }, [pathname]);
+
+    dispatch(uiActions.init());
+  }, [pathname, dispatch]);
 
   return (
     <>

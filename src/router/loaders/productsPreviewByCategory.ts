@@ -4,6 +4,7 @@ import { json } from "react-router-dom";
 
 /**
  * Allow to retrieve products by category
+ *
  * @param param0
  * @returns
  */
@@ -14,6 +15,7 @@ const productsPreviewByCategoryLoader = async ({ params }: LoaderDefinition) => 
     .eq("slug", params.slug);
 
   if (error) {
+    console.error(error);
     throw json({ title: error.hint, message: error.message }, { status: 500 }); // Later
   }
 

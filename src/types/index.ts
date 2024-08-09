@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FocusEvent, ReactNode } from "react";
 
 export interface PictureDescriptor {
   desktop: string;
@@ -81,6 +81,7 @@ export type UIStateDescriptor = {
   mobileNavigationIsShown: boolean;
   cartModalIsShown: boolean;
   notificationIsShown: boolean;
+  checkoutOrderModalIsShown: boolean;
 };
 
 export type AppWideStateDescriptor = {
@@ -101,4 +102,70 @@ export type CartStateDescriptor = {
   items: CartItemDescriptor[];
   totalQuantity: number;
   totalAmount: number;
+};
+
+export type InputType = "text" | "number" | "tel" | "email" | "radio";
+
+export type FormFieldProps = {
+  type: InputType;
+  label: string;
+  placeholder?: string;
+  name: string;
+  defaultValue?: string;
+  defaultChecked?: boolean;
+  errorMessage: string | null;
+  onBlur: (event: FocusEvent<HTMLInputElement>) => void;
+};
+
+export type FormCheckoutState = {
+  name: {
+    value: string;
+    errorMessage: string | null;
+  };
+  email: {
+    value: string;
+    errorMessage: string | null;
+  };
+  phone: {
+    value: string;
+    errorMessage: string | null;
+  };
+  address: {
+    value: string;
+    errorMessage: string | null;
+  };
+  zip: {
+    value: string;
+    errorMessage: string | null;
+  };
+  city: {
+    value: string;
+    errorMessage: string | null;
+  };
+  country: {
+    value: string;
+    errorMessage: string | null;
+  };
+  payment: {
+    value: string;
+    errorMessage: string | null;
+  };
+  eMoneyNumber: {
+    value: string;
+    errorMessage: string | null;
+  };
+  eMoneyPin: {
+    value: string;
+    errorMessage: string | null;
+  };
+  formIsValid: boolean;
+};
+
+export type FormCheckoutAction = {
+  type: "INPUT_BLUR" | "FORM_SUBMIT";
+  payload: {
+    type: string;
+    name: string;
+    value: string;
+  };
 };

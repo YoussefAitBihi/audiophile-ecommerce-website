@@ -1,14 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "@/pages/Home";
-import CategoryPage from "@/pages/Category";
-import ProductDetailPage from "@/pages/ProductDetail";
-import CheckoutPage from "@/pages/Checkout";
 import RootLayout from "@/pages/Root";
 import ErrorBoundaryPage from "@/pages/ErrorBoundary";
 import { Provider } from "react-redux";
 import store from "@/store";
-import productsPreviewByCategoryLoader from "./loaders/productsPreviewByCategory";
-import productDetailLoader from "./loaders/productDetail";
+import { lazy, Suspense } from "react";
+import SpinnerLoading from "@/components/UI/SpinnerLoading";
+import { LoaderDefinition } from "@/types";
 
 /**
  * Router - Allow to take the url and render the adequate page.
@@ -16,24 +13,53 @@ import productDetailLoader from "./loaders/productDetail";
  * @returns
  */
 const RouterConfig = () => {
+  const HomePage = lazy(() => import("@/pages/Home"));
+  const CategoryPage = lazy(() => import("@/pages/Category"));
+  const ProductDetailPage = lazy(() => import("@/pages/ProductDetail"));
+  const CheckoutPage = lazy(() => import("@/pages/Checkout"));
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
       errorElement: <ErrorBoundaryPage />,
       children: [
-        { index: true, element: <HomePage /> },
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<SpinnerLoading />}>
+              <HomePage />
+            </Suspense>
+          ),
+        },
         {
           path: "category/:slug",
-          element: <CategoryPage />,
-          loader: productsPreviewByCategoryLoader,
+          element: (
+            <Suspense fallback={<SpinnerLoading />}>
+              <CategoryPage />
+            </Suspense>
+          ),
+          loader: (meta: LoaderDefinition) =>
+            import("./loaders/productsPreviewByCategory").then((module) => module.default(meta)),
         },
         {
           path: "product/:slug",
-          element: <ProductDetailPage />,
-          loader: productDetailLoader,
+          element: (
+            <Suspense fallback={<SpinnerLoading />}>
+              <ProductDetailPage />
+            </Suspense>
+          ),
+          loader: (meta: LoaderDefinition) =>
+            import("./loaders/productDetail").then((module) => module.default(meta)),
         },
-        { path: "checkout", element: <CheckoutPage /> },
+        {
+          path: "checkout",
+          element: (
+            <Suspense fallback={<SpinnerLoading />}>
+              <CheckoutPage />
+            </Suspense>
+          ),
+        },
       ],
     },
   ]);

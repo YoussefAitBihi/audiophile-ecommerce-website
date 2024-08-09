@@ -40,5 +40,6 @@
   &[aria-disabled="true"] {
     background-color: $clr-accent-100;
     cursor: not-allowed;
+    pointer-events: none;
   }
 }

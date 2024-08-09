@@ -46,7 +46,7 @@ const SectionProducts = () => {
             </div>
             <div className="section-products__product-detail border-radius-300">
               <h3 className="secondary-heading primary-heading--black">yx1 earphones</h3>
-              <PrimaryButton tag="link" href="/product/yx1-speaker" modifier="white">
+              <PrimaryButton tag="link" href="/product/yx1-wireless-earphones" modifier="white">
                 see product
               </PrimaryButton>
             </div>

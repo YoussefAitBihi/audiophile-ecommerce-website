@@ -1,5 +1,6 @@
 .form-field {
   $clr-border-form-field: hsl(0, 0%, 81%);
+  position: relative;
 
   &:not(:last-of-type) {
     margin-bottom: 2.5rem;
@@ -30,17 +31,26 @@
     font-weight: $fw-bold;
     letter-spacing: $ls-2;
     text-transform: capitalize;
+    transition: all 0.2s ease-in;
 
     &--radio {
       margin-bottom: 0;
       flex: 1;
       font-size: $fs-200;
       letter-spacing: $ls-1;
+      cursor: pointer;
     }
 
-    // &--failure {
-    //   color: $clr-error-400;
-    // }
+    &--animate {
+      background-color: white;
+      width: fit-content;
+      padding-inline: 0.3em;
+      translate: 1rem 1.6rem;
+    }
+
+    &--failure {
+      color: $clr-error-400;
+    }
   }
 
   &__control {
@@ -52,6 +62,22 @@
     color: $clr-neutral-900;
     border: 1px solid $clr-border-form-field;
     border-radius: $br-300;
+
+    &::placeholder {
+      color: $clr-neutral-500;
+      font-weight: $fw-medium;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Moz
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
 
     &--radio {
       order: -1;
@@ -66,16 +92,31 @@
       border-color: transparent;
     }
 
-    &::placeholder {
-      color: $clr-neutral-500;
-      font-weight: $fw-medium;
+    &--failure {
+      border: 1px solid $clr-error-400;
     }
-
-    // &--failure {
-    //   border: 2px solid $clr-error-400;
-    // }
   }
 
   &__error-message {
+    position: absolute;
+    top: -0.3rem;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: $clr-error-400;
+    font-size: 1.2rem;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-2;
+
+    padding: 0.1rem 0.6rem;
+    background-color: hsl(0, 65%, 93%);
+    border-radius: 0.3rem;
+
+    & > svg {
+      fill: $clr-error-400;
+    }
   }
 }

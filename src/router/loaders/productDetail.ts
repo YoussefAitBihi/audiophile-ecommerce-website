@@ -2,13 +2,43 @@ import supabase from "@/config/supabase-client";
 import { LoaderDefinition } from "@/types";
 import { json } from "react-router-dom";
 
-const productDetailLoader = async ({ params }: LoaderDefinition) => {
-  const { data: productDetail, error } = await supabase
-    .from("product")
-    .select("*, product-images(*), gallery(*), accessory(*)")
-    .eq("slug", params.slug);
+type ProductImage = {
+  id: string;
+  desktop: string;
+  mobile: string;
+  tablet: string;
+  product_id: string;
+};
 
-  if (productDetail?.length === 0) {
+type Accessory = {
+  id: string;
+  title: string;
+  quantity: string;
+  product_id: string;
+};
+
+type ProductDetail = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  slug: string;
+  is_new: boolean;
+  features: string;
+  category_id: string;
+  "product-images": Array<ProductImage>;
+  gallery: ProductImage[];
+  accessory: Accessory[];
+};
+
+const productDetailLoader = async ({ params }: LoaderDefinition) => {
+  const { data, error } = await supabase
+    .from("product")
+    .select(`*, "product-images"(*), gallery(*), accessory(*)`)
+    .eq("slug", params.slug)
+    .single();
+
+  if (error || !data) {
     throw json(
       {
         title: "Product not found",
@@ -18,26 +48,26 @@ const productDetailLoader = async ({ params }: LoaderDefinition) => {
     );
   }
 
-  if (error) {
-    throw json({ title: "Error", message: error.message });
-  }
+  const productDetail = data as ProductDetail;
 
   const { data: otherProducts, error: otherProductsError } = await supabase
     .from("product")
-    .select("id, title, slug, product-preview-images(*)")
+    .select(`id, title, slug, "product-preview-images"(*)`)
     .neq("slug", params.slug)
     .limit(3);
 
-  if (otherProductsError) {
-    throw json({ title: "Error", message: otherProductsError.message });
+  console.log(otherProducts);
+
+  if (otherProductsError || otherProducts.length === 0) {
+    throw json({ title: "Error", message: "Error Message" });
   }
 
   const transformedSuggestionProducts = [];
 
-  for (const product of otherProducts) {
+  for (const product of otherProducts!) {
     const transformedProduct = {
       title: product.title,
-      picture: product["product-preview-images"][0],
+      picture: product["product-preview-images"],
       slug: product.slug,
     };
 
@@ -46,17 +76,17 @@ const productDetailLoader = async ({ params }: LoaderDefinition) => {
 
   const productDetailAndFascinatedProducts = {
     productMainDetail: {
-      id: productDetail[0].id,
-      title: productDetail[0].title,
-      price: productDetail[0].price,
-      description: productDetail[0].description,
-      slug: productDetail[0].slug,
-      features: productDetail[0].features,
-      isNew: productDetail[0].is_new,
-      picture: productDetail[0]["product-images"][0],
+      id: productDetail.id,
+      title: productDetail.title,
+      price: productDetail.price,
+      description: productDetail.description,
+      slug: productDetail.slug,
+      features: productDetail.features,
+      isNew: productDetail.is_new,
+      picture: productDetail["product-images"][0],
     },
-    accessories: [...productDetail[0].accessory],
-    gallery: [...productDetail[0].gallery],
+    accessories: [...productDetail.accessory],
+    gallery: [...productDetail.gallery],
     suggestionProducts: transformedSuggestionProducts,
   };
 

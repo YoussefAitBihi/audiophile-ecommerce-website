@@ -4,8 +4,16 @@ import { useRouteError } from "react-router-dom";
 import AstronautIcon from "@/assets/icons/Astronaut";
 import PrimaryButton from "@/components/UI/Buttons/Primary";
 
+type Error = {
+  data: {
+    title: string;
+    message: string;
+  };
+  status: number;
+};
+
 const ErrorBoundaryPage = () => {
-  const error = useRouteError();
+  const error = useRouteError() as Error;
 
   return (
     <>
@@ -15,8 +23,10 @@ const ErrorBoundaryPage = () => {
           <div className="container">
             <div className="error-boundary-article__content">
               <div className="product-detail-grid">
-                <h1 className="primary-heading primary-heading--black">{error.data.title}</h1>
-                <p>{error.data.message}</p>
+                <h1 className="primary-heading primary-heading--black">
+                  {error.data?.title || "Error Title"}
+                </h1>
+                <p>{error.data?.message || "Error Message"}</p>
                 <PrimaryButton tag="link" href="/" modifier="orange">
                   Go home
                 </PrimaryButton>
